@@ -31,8 +31,8 @@ CREATE TABLE aluno(
 -- Inserir dados na tabela Aluno
 
 INSERT INTO aluno (ra, nome, curso, tituloTrabalho, areaPesquisa, orientador, email) VALUES
-('0040641311019', 'José Claudio Alvarez Junior', 'Gestão Empresarial', 'Criação de Conhecimento', 'Gestão do Conhecimento', 'Carlos Henrique Menezes Garcia', 'zeh.claudio@hotmail.com'),
-('0040481522005', 'Rogério do Nascimento', 'Análise e Desenvolvimento de Sistema', 'Raciocínio lógico na educação fundamental', 'Educação', 'Ricardo Bertassi Pompeu', 'rognask@hotmail.com');
+('0040641311019', 'José Claudio Alvarez Junior', 'Gestão Empresarial', 'Criação de Conhecimento', 'Gestão do Conhecimento', 'Cristine do Carmo Schmidt Bueno de Moraes', 'zeh.claudio@hotmail.com'),
+('0040481522005', 'Rogério do Nascimento', 'Análise e Desenvolvimento de Sistema', 'Raciocínio lógico na educação fundamental', 'Educação', 'Antonio Alfredo Lacerda', 'rognask@hotmail.com');
 
 -- Criar tabela Telefone
 
@@ -85,5 +85,5 @@ CREATE TABLE trabalho(
 -- Inserir dados na tabela Trabalho
 
 INSERT INTO trabalho (autor, titulo, cursoAutor, orientador, convidado1, convidado2, diaApresentacao, horario, sala) VALUES
-('José Claudio Alvarez Junior', 'Criação de Conhecimento', 'Gestão Empresarial', 'Carlos Henrique Menezes Garcia', 'Anderson Lima Barbosa', 'Ricardo Bertassi Pompeu', '2015-11-28', '10:00:00', 'B07'),
-('Rogério do Nascimento', 'Raciocínio lógico na educação fundamental', 'Análise e Desenvolvimento de Sistema', 'Ricardo Bertassi Pompeu', 'Antonio Alfredo Lacerda', 'Carlos Augusto Amaral Moreira', '2018-11-25', '15:00:00', 'C05');
+('José Claudio Alvarez Junior', 'Criação de Conhecimento', 'Gestão Empresarial', 'Cristine do Carmo Schmidt Bueno de Moraes', 'Anderson Lima Barbosa', 'Ricardo Bertassi Pompeu', '2015-11-28', '10:00:00', 'B07'),
+('Rogério do Nascimento', 'Raciocínio lógico na educação fundamental', 'Análise e Desenvolvimento de Sistema', 'Antonio Alfredo Lacerda', 'Cristine do Carmo Schmidt Bueno de Moraes', 'Carlos Augusto Amaral Moreira', '2018-11-25', '15:00:00', 'C05');
