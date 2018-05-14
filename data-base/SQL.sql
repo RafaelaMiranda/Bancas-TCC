@@ -55,3 +55,16 @@ sala varchar(5),
 eGrupo tinyint(1),
 FOREIGN KEY(codProfessor) REFERENCES Professor (codProfessor)
 );
+
+-- Tabela de Usuarios
+-- Usuário padrão: Admin
+-- Senha: AdminAdmin
+CREATE TABLE usuario (
+codUsuario int(10) PRIMARY KEY AUTO_INCREMENT,
+nome varchar(30),
+senha varchar(30),
+ultimoAcesso timestamp
+);
+
+-- Adicionando o usuário Admin
+INSERT INTO usuario (nome, senha) VALUES ('Admin', 'AdminAdmin');
