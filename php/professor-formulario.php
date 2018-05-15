@@ -1,5 +1,4 @@
 <?php include("cabecalho.php")?>
-
 <div class="container">
 	<form action="adiciona-professor.php">
 		<div class="row">
