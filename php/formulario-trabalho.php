@@ -62,7 +62,7 @@
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="inputGroupSelect01">
-                                <b>Orientedor</b>
+                                <b>Orientador</b>
                             </label>
                         </div>
                         <select class="custom-select" id="orientador" name="orientador">
@@ -93,13 +93,20 @@
                     </div>
 
                     <p>
-                        <label for="date">Example date</label>
-                        <input type="date" id="date" />
-                    </p>
+                    <div class="form-group">
+                        <label for="date">
+                            <b>Data</b>
+                        </label>
+                        <input type="date" class="form-control" id="date" name="date">
+                    </div>
 
-                    <p>
-                        <label for="time">Example time</label>
-                        <input type="time" id="time" />
+                    <div class="form-group">
+                        <label for="time">
+                            <b>Hora</b>
+                        </label>
+                        <input type="time" class="form-control" id="time" name="time">
+                    </div>
+                
                     </p>
 
                     <div class="form-group">
