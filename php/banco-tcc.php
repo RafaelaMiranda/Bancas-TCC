@@ -28,3 +28,18 @@
         $query = "INSERT INTO Aluno (ra, tituloTrabalho, nome, orientador, areaPesquisa, curso, email) VALUES ('{$ra}','{$tituloTrabalho}', '{$nome}','{$orientador}','{$areaPesquisa}','{$curso}','{$email}')";
         return mysqli_query($conexao, $query);
     }
+
+    /** TRABALHOS */
+    function listaTrabalhos($conexao) {
+        $trabalho = array();
+        $resultado = mysqli_query($conexao, "SELECT * FROM Trabalho");
+        while($trabalhos = mysqli_fetch_assoc($resultado)) {
+            array_push($trabalho, $trabalhos);
+        }
+        return $trabalho;
+    }
+
+    function insereTrabalho($conexao, $codProfessor, $convidado1, $convidado2, $autor, $titulo, $cursoAutor, $diaApresentacao, $horario, $sala, $eGrupo) {
+        $query = "INSERT INTO Trabalho (codProfessor, convidado1, convidado2, autor, titulo, cursoAutor, diaApresentacao, horario, sala, eGrupo) VALUES ('{$ra}','{$tituloTrabalho}', '{$nome}','{$orientador}','{$areaPesquisa}','{$curso}','{$email}')";
+        return mysqli_query($conexao, $query);
+    }
