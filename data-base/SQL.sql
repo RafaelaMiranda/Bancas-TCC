@@ -63,7 +63,6 @@ CREATE TABLE usuario (
 codUsuario int(10) PRIMARY KEY AUTO_INCREMENT,
 nome varchar(30),
 senha varchar(30),
-ultimoAcesso timestamp
 );
 
 -- Adicionando o usuário Admin

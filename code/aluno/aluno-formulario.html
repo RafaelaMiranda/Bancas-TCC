@@ -1,0 +1,198 @@
+<?php include("conecta.php");
+include("banco-tcc.php"); ?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastro - Aluno</title>
+
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="../assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="../assets/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="../assets/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+
+    <link href="../assets/css/animate.css" rel="stylesheet">
+    <link href="../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <img src="http://www.fatec.edu.br/wp-content/themes/fatec/img/logo-colorido.png" height="80" />
+                    </li>
+                    <li>
+                        <a href="../apresentacoes.html">
+                            <i class="fa fa-th-large"></i>
+                            <span class="nav-label">Apresentações</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-edit"></i>
+                            <span class="nav-label">Cadastro</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../professor/professor-formulario.html">Professor</a>
+                            </li>
+                            <li>
+                                <a href="aluno-formulario.html">Aluno</a>
+                            </li>
+                            <li>
+                                <a href="#">Telefone</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-table"></i>
+                            <span class="nav-label">Listagem</span>
+                            <span class="fa arrow"></span>
+                        </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="../professor/professor-lista.html">Professor</a>
+                            </li>
+                            <li>
+                                <a href="aluno-lista.html">Aluno</a>
+                            </li>
+                            <li>
+                                <a href="#">Telefone</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <a href="../login.html">
+                                <i class="fa fa-sign-out"></i> Log out
+                            </a>
+                        </li>
+                    </ul>
+
+                </nav>
+
+                <form method="GET" action="adiciona-aluno.php" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Nome</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="nome" name="nome" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">RA</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="ra" name="ra" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">E-mail</label>
+
+                        <div class="col-sm-9">
+                            <input type="email" id="email" name="email" class="form-control" placeholder="exemplo: joao@gmail.com">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Titulo do Trabalho</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="tituloTrabalho" name="tituloTrabalho" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Area de Pesquisa</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="areaPesquisa" name="areaPesquisa" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Curso</label>
+                    
+                        <div class="col-sm-9">
+                            <select class="form-control m-b" name="curso" id="curso">
+                                <option selected>Escolha...</option>
+                                <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
+                                <option value="Jogos Digitais">Jogos Digitais</option>
+                                <option value="Gestão Empresarial">Gestão Empresarial</option>
+                                <option value="Logística">Logística</option>
+                                <option value="Produção Têxtil">Produção Têxtil</option>
+                                <option value="Segurança da Informação">Segurança da Informação</option>
+                                <option value="Têxtil e Moda">Têxtil e Moda</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Orientador</label>
+                    
+                        <div class="col-sm-9">
+                            <select class="form-control m-b" id="orientador" name="orientador"></select>
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <button class="btn btn-primary" type="submit">Salvar</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Mainly scripts -->
+                <script src="../assets/js/jquery-2.1.1.js"></script>
+                <script src="../assets/js/bootstrap.min.js"></script>
+                <script src="../assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                <script src="../assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+                <script src="../assets/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+
+                <!-- Custom and plugin javascript -->
+                <script src="../assets/js/inspinia.js"></script>
+                <script src="../assets/js/plugins/pace/pace.min.js"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('#orientador').empty(); //Limpando a tabela
+                        $.ajax({
+                            type: 'POST',		//Definimos o método HTTP usado
+                            dataType: 'json',	//Definimos o tipo de retorno
+                            url: '../professor/getProfessor.php',//Definindo o arquivo onde serão buscados os dados
+                            success: function (dados) {
+                                $('#orientador').append('<option selected>Escolha...</option>');
+                                for (var i = 0; dados.length > i; i++) {
+                                    //Adicionando registros retornados na tabela
+                                    $('#orientador').append('<option>' + dados[i].nome + '</option>');
+                                }
+                            }
+                        });
+                    });
+                </script>
+</body>
+
+</html>
