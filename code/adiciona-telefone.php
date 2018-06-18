@@ -1,8 +1,8 @@
 <?php include("conecta.php");
 
-    $numero = $_GET["numero"];
-    $ra = $_GET["ra"];
-    $tipo = $_GET["tipo"];
+    $numero = $_POST["numero"];
+    $ra = $_POST["ra"];
+    $tipo = $_POST["tipo"];
 
     function insereTelefone($conexao,$numero,$ra,$tipo) {
         

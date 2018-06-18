@@ -94,7 +94,7 @@
 
                 </nav>
 
-                <form method="GET" action="adiciona-telefone.php" class="form-horizontal" accept-charset="utf-8">
+                <form method="POST" action="adiciona-telefone.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Número</label>
 
@@ -160,7 +160,7 @@
                         $.ajax({
                             type: 'POST',		//Definimos o método HTTP usado
                             dataType: 'json',	//Definimos o tipo de retorno
-                            url: 'getRA.php',//Definindo o arquivo onde serão buscados os dados
+                            url: 'getAluno.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
                                 $('#ra').append('<option selected>Escolha...</option>');
                                 for (var i = 0; dados.length > i; i++) {

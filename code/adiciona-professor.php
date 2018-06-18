@@ -1,7 +1,7 @@
 <?php include("conecta.php");
 
-    $nome = $_GET["nome"];
-    $titulacao = $_GET["titulacao"];
+    $nome = $_POST["nome"];
+    $titulacao = $_POST["titulacao"];
 
     function insereProfessor($conexao,$nome, $titulacao) {
         

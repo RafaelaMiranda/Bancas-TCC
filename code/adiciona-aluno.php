@@ -1,13 +1,13 @@
 <?php include("conecta.php");
       include("banco-tcc.php");
 
-    $nome = $_GET["nome"];
-    $ra = $_GET["ra"];
-    $email = $_GET["email"];
-    $tituloTrabalho = $_GET["tituloTrabalho"];
-    $areaPesquisa = $_GET["areaPesquisa"];
-    $curso = $_GET["curso"];
-    $orientador = $_GET["orientador"];
+    $nome = $_POST["nome"];
+    $ra = $_POST["ra"];
+    $email = $_POST["email"];
+    $tituloTrabalho = $_POST["tituloTrabalho"];
+    $areaPesquisa = $_POST["areaPesquisa"];
+    $curso = $_POST["curso"];
+    $orientador = $_POST["orientador"];
 
     function insereAluno($conexao, $ra, $tituloTrabalho, $nome, $orientador, $areaPesquisa, $curso, $email) {
         $query = "INSERT INTO Aluno (ra, tituloTrabalho, nome, orientador, areaPesquisa, curso, email) VALUES ('{$ra}','{$tituloTrabalho}', '{$nome}','{$orientador}','{$areaPesquisa}','{$curso}','{$email}')";
