@@ -1,6 +1,3 @@
-<?php include("conecta.php");
-include("banco-tcc.php"); ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -11,16 +8,16 @@ include("banco-tcc.php"); ?>
 
     <title>Cadastro - Aluno</title>
 
-    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Data Tables -->
-    <link href="../assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
-    <link href="../assets/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
-    <link href="../assets/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
+    <link href="assets/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="assets/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+    <link href="assets/css/plugins/dataTables/dataTables.tableTools.min.css" rel="stylesheet">
 
-    <link href="../assets/css/animate.css" rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -35,7 +32,7 @@ include("banco-tcc.php"); ?>
                         <img src="http://www.fatec.edu.br/wp-content/themes/fatec/img/logo-colorido.png" height="80" />
                     </li>
                     <li>
-                        <a href="../apresentacoes.html">
+                        <a href="apresentacoes.html">
                             <i class="fa fa-th-large"></i>
                             <span class="nav-label">Apresentações</span>
                         </a>
@@ -49,13 +46,13 @@ include("banco-tcc.php"); ?>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../professor/professor-formulario.html">Professor</a>
+                                <a href="professor-formulario.html">Professor</a>
                             </li>
                             <li>
                                 <a href="aluno-formulario.html">Aluno</a>
                             </li>
                             <li>
-                                <a href="#">Telefone</a>
+                                <a href="telefone-formulario.html">Telefone</a>
                             </li>
                         </ul>
                     </li>
@@ -68,13 +65,13 @@ include("banco-tcc.php"); ?>
                         </a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="../professor/professor-lista.html">Professor</a>
+                                <a href="professor-lista.html">Professor</a>
                             </li>
                             <li>
                                 <a href="aluno-lista.html">Aluno</a>
                             </li>
                             <li>
-                                <a href="#">Telefone</a>
+                                <a href="telefone-lista.html">Telefone</a>
                             </li>
                         </ul>
                     </li>
@@ -88,7 +85,7 @@ include("banco-tcc.php"); ?>
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <ul class="nav navbar-top-links navbar-right">
                         <li>
-                            <a href="../login.html">
+                            <a href="login.html">
                                 <i class="fa fa-sign-out"></i> Log out
                             </a>
                         </li>
@@ -134,7 +131,7 @@ include("banco-tcc.php"); ?>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Curso</label>
-                    
+
                         <div class="col-sm-9">
                             <select class="form-control m-b" name="curso" id="curso">
                                 <option selected>Escolha...</option>
@@ -150,7 +147,7 @@ include("banco-tcc.php"); ?>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Orientador</label>
-                    
+
                         <div class="col-sm-9">
                             <select class="form-control m-b" id="orientador" name="orientador"></select>
                         </div>
@@ -165,16 +162,16 @@ include("banco-tcc.php"); ?>
                 </form>
 
                 <!-- Mainly scripts -->
-                <script src="../assets/js/jquery-2.1.1.js"></script>
-                <script src="../assets/js/bootstrap.min.js"></script>
-                <script src="../assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-                <script src="../assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-                <script src="../assets/js/plugins/jeditable/jquery.jeditable.js"></script>
+                <script src="assets/js/jquery-2.1.1.js"></script>
+                <script src="assets/js/bootstrap.min.js"></script>
+                <script src="assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                <script src="assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+                <script src="assets/js/plugins/jeditable/jquery.jeditable.js"></script>
 
 
                 <!-- Custom and plugin javascript -->
-                <script src="../assets/js/inspinia.js"></script>
-                <script src="../assets/js/plugins/pace/pace.min.js"></script>
+                <script src="assets/js/inspinia.js"></script>
+                <script src="assets/js/plugins/pace/pace.min.js"></script>
 
                 <script>
                     $(document).ready(function () {
@@ -182,7 +179,7 @@ include("banco-tcc.php"); ?>
                         $.ajax({
                             type: 'POST',		//Definimos o método HTTP usado
                             dataType: 'json',	//Definimos o tipo de retorno
-                            url: '../professor/getProfessor.php',//Definindo o arquivo onde serão buscados os dados
+                            url: 'getProfessor.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
                                 $('#orientador').append('<option selected>Escolha...</option>');
                                 for (var i = 0; dados.length > i; i++) {
