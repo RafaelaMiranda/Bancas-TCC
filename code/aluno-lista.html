@@ -104,9 +104,9 @@
                                     <thead>
                                         <tr>
                                             <th>Aluno</th>
-                                            <th>Trabalho</th>
-                                            <th>Orientador</th>
+                                            <th>RA</th>
                                             <th>Curso</th>
+                                            <th>E-mail</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tabela">
@@ -144,7 +144,7 @@
                             success: function (dados) {
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
-                                    $('#tabela').append('<tr><td>' + dados[i].nome + '</td><td>' + dados[i].tituloTrabalho + '</td ><td>' + dados[i].orientador + '</td><td>' + dados[i].curso + '</td></tr>');
+                                    $('#tabela').append('<tr><td>' + dados[i].nome + '</td><td>' + dados[i].ra + '</td ><td>' + dados[i].curso + '</td><td>' + dados[i].email + '</td></tr>');
                                 }
                             }
                         });

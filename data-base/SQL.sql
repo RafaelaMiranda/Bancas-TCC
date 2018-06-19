@@ -5,6 +5,8 @@
 CREATE TABLE Grupo (
 codGrupo int(10) PRIMARY KEY,
 tituloTrabalho varchar(100),
+orientador varchar(50),
+areaPesquisa varchar(50),
 alunoA varchar(100),
 alunoB varchar(100),
 alunoC varchar(100),
@@ -23,17 +25,15 @@ CREATE TABLE Aluno (
 ra char(13) PRIMARY KEY,
 codGrupo int(10),
 codTrabalho int(10),
-tituloTrabalho varchar(100),
 nome varchar(100),
-orientador varchar(50),
-areaPesquisa varchar(50),
 curso varchar(50),
 email varchar(70)
 );
 
 -- Tabela de Telefones
 CREATE TABLE Telefone (
-numero varchar(14) PRIMARY KEY,
+codTelefone int(10) PRIMARY KEY AUTO_INCREMENT,
+numero varchar(14),
 ra char(13),
 tipo varchar(10),
 FOREIGN KEY(ra) REFERENCES Aluno (ra)
