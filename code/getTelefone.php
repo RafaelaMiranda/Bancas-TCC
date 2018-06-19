@@ -5,9 +5,9 @@
     //Consultando banco de dados
     $qryLista = mysqli_query($conexao, "SELECT * FROM Telefone");    
     while($resultado = mysqli_fetch_assoc($qryLista)){
-        $vetor[] = array_map('utf8_encode', $resultado); 
+        $vetor[] = array_map('htmlentities', $resultado); 
     }    
     
     //Passando vetor em forma de json
-    echo json_encode($vetor);
+    echo html_entity_decode(json_encode($vetor));
 ?>
