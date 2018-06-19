@@ -1,5 +1,4 @@
 <?php include("conecta.php");
-      include("banco-tcc.php");
 
     $nome = $_POST["nome"];
     $ra = $_POST["ra"];

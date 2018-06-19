@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cadastro - Professor</title>
+    <title>Cadastro - Aluno</title>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -18,7 +18,6 @@
 
     <link href="assets/css/animate.css" rel="stylesheet">
     <link href="assets/css/style.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -100,47 +99,58 @@
 
                 </nav>
 
-                <form method="POST" action="adiciona-telefone.php" class="form-horizontal" accept-charset="utf-8">
+                <form method="POST" action="adiciona-grupo.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Número</label>
+                        <label class="col-sm-2 control-label">Trabalho</label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="numero" name="numero" class="form-control">
+                            <input type="text" id="tituloTrabalho" name="tituloTrabalho" class="form-control">
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">RA</label>
+                        <label class="col-sm-2 control-label">Orientador</label>
 
                         <div class="col-sm-9">
-                            <select class="form-control m-b" id="ra" name="ra"></select>
+                            <select class="form-control m-b" name="orientador" id="orientador"></select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">Titulação</label>
+                        <label class="col-sm-2 control-label">Area de Pesquisa</label>
 
-                        <div class="col-sm-10">
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="tipo" value="fixo"> Fixo </label>
-                            </div>
-
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="tipo" value="celular"> Celular </label>
-                            </div>
-
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="tipo" value="comercial"> Comercial </label>
-                            </div>
-
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" name="tipo" value="outro"> Outro </label>
-                            </div>
-
+                        <div class="col-sm-9">
+                            <input type="text" id="areaPesquisa" name="areaPesquisa" class="form-control">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Aluno 1</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="alunoA" name="alunoA" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Aluno 2</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="alunoB" name="alunoB" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Aluno 3</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="alunoC" name="alunoC" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Aluno 4</label>
+
+                        <div class="col-sm-9">
+                            <input type="text" id="alunoD" name="alunoD" class="form-control">
+                        </div>
+                    </div>
+
+
                     <div class="hr-line-dashed"></div>
                     <div class="form-group">
                         <div class="col-sm-4 col-sm-offset-2">
@@ -160,18 +170,19 @@
                 <!-- Custom and plugin javascript -->
                 <script src="assets/js/inspinia.js"></script>
                 <script src="assets/js/plugins/pace/pace.min.js"></script>
+
                 <script>
                     $(document).ready(function () {
-                        $('#ra').empty(); //Limpando a tabela
+                        $('#orientador').empty(); //Limpando a tabela
                         $.ajax({
                             type: 'POST',		//Definimos o método HTTP usado
                             dataType: 'json',	//Definimos o tipo de retorno
-                            url: 'getAluno.php',//Definindo o arquivo onde serão buscados os dados
+                            url: 'getProfessor.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
-                                $('#ra').append('<option selected>Escolha...</option>');
+                                $('#orientador').append('<option selected>Escolha...</option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
-                                    $('#ra').append('<option>' + dados[i].ra + '</option>');
+                                    $('#orientador').append('<option>' + dados[i].nome + '</option>');
                                 }
                             }
                         });
