@@ -3,7 +3,7 @@
 
 -- Tabela de Grupos
 CREATE TABLE Grupo (
-codGrupo int(10) PRIMARY KEY,
+codGrupo int(10) PRIMARY KEY AUTO_INCREMENT,
 tituloTrabalho varchar(100),
 orientador varchar(50),
 areaPesquisa varchar(50),
@@ -15,7 +15,7 @@ alunoD varchar(100)
 
 -- Tabela de Professores
 CREATE TABLE Professor (
-codProfessor int(10) PRIMARY KEY,
+codProfessor int(10) PRIMARY KEY AUTO_INCREMENT,
 nome varchar(100),
 titulacao varchar(15)
 );
@@ -23,8 +23,8 @@ titulacao varchar(15)
 -- Tabela de Alunos
 CREATE TABLE Aluno (
 ra char(13) PRIMARY KEY,
-codGrupo int(10),
 codTrabalho int(10),
+codGrupo int(10),
 nome varchar(100),
 curso varchar(50),
 email varchar(70)
@@ -41,19 +41,14 @@ FOREIGN KEY(ra) REFERENCES Aluno (ra)
 
 -- Tabela de Trabalhos
 CREATE TABLE Trabalho (
-codTrabalho int(10) PRIMARY KEY,
-codProfessor int(10),
-orientador varchar(100),
+codTrabalho int(10) PRIMARY KEY AUTO_INCREMENT,
+codGrupo int(10),
 convidado1 varchar(100),
 convidado2 varchar(100),
-autor varchar(100),
-titulo varchar(100),
-cursoAutor varchar(50),
-diaApresentacao date,
-horario time,
+diaApresentacao varchar(50),
+horario varchar(50),
 sala varchar(5),
-eGrupo tinyint(1),
-FOREIGN KEY(codProfessor) REFERENCES Professor (codProfessor)
+FOREIGN KEY(codGrupo) REFERENCES Grupo (codGrupo)
 );
 
 -- Tabela de Usuarios

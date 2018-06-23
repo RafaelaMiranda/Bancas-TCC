@@ -58,6 +58,9 @@
                             <li>
                                 <a href="grupo-formulario.html">Grupo</a>
                             </li>
+                            <li>
+                                <a href="apresentacao-formulario.html">Trabalho</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -168,7 +171,7 @@
                             dataType: 'json',	//Definimos o tipo de retorno
                             url: 'getAluno.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
-                                $('#ra').append('<option selected>Escolha...</option>');
+                                $('#ra').append('<option selected></option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
                                     $('#ra').append('<option>' + dados[i].ra + '</option>');

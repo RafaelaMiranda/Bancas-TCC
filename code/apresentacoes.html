@@ -56,6 +56,9 @@
                             <li>
                                 <a href="grupo-formulario.html">Grupo</a>
                             </li>
+                            <li>
+                                <a href="apresentacao-formulario.html">Trabalho</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -110,26 +113,13 @@
                                             <th>Horário</th>
                                             <th>Curso</th>
                                             <th>Sala</th>
-                                            <th>Aluno</th>
                                             <th>Título</th>
                                             <th>Orientador</th>
                                             <th>Convidado 1</th>
                                             <th>Convidado 2</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="gradeX">
-                                            <td>Trident</td>
-                                            <td>Internet Explorer 4.0</td>
-                                            <td>Win 95+</td>
-                                            <td class="center">4</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                            <td class="center">X</td>
-                                        </tr>
-                                    </tbody>
+                                    <tbody id="tabela"></tbody>
                                 </table>
                             </div>
                         </div>
@@ -152,6 +142,23 @@
             <!-- Custom and plugin javascript -->
             <script src="assets/js/inspinia.js"></script>
             <script src="assets/js/plugins/pace/pace.min.js"></script>
+
+            <script>
+                $(document).ready(function () {
+                    $('#tabela').empty(); //Limpando a tabela
+                    $.ajax({
+                        type: 'POST',		//Definimos o método HTTP usado
+                        dataType: 'json',	//Definimos o tipo de retorno
+                        url: 'getApresentacao.php',//Definindo o arquivo onde serão buscados os dados
+                        success: function (dados) {
+                            for (var i = 0; dados.length > i; i++) {
+                                //Adicionando registros retornados na tabela
+                                $('#tabela').append('<tr><td>' + dados[i].diaApresentacao + '</td><td>' + dados[i].horario + '</td><td>' + dados[i].curso + '</td><td>' + dados[i].sala + '</td><td>' + dados[i].tituloTrabalho + '</td><td>' + dados[i].orientador + '</td><td>' + dados[i].convidado1 + '</td><td>' + dados[i].convidado2 + '</td></tr>');
+                            }
+                        }
+                    });
+                });
+            </script>
 
 </body>
 
