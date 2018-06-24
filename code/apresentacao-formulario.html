@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Cadastro - Grupo</title>
+    <title>Cadastro - Trabalho</title>
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -140,7 +140,7 @@
 
                             <div class="col-sm-9">
                                 <select class="form-control m-b" name="horario" id="horario">
-                                    <option selected>Escolha...</option>
+                                    <option selected></option>
                                     <option value="07h30">07h30</option>
                                     <option value="08h00">08h00</option>
                                     <option value="08h30">08h30</option>
@@ -214,6 +214,7 @@
                             dataType: 'json',	//Definimos o tipo de retorno
                             url: 'getProfessor.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
+                                $('#convidado1').append('<option selected></option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
                                     $('#convidado1').append('<option>' + dados[i].nome + '</option>');
@@ -227,6 +228,7 @@
                             dataType: 'json',	//Definimos o tipo de retorno
                             url: 'getProfessor.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
+                                $('#convidado2').append('<option selected></option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
                                     $('#convidado2').append('<option>' + dados[i].nome + '</option>');
@@ -240,6 +242,7 @@
                             dataType: 'json',	//Definimos o tipo de retorno
                             url: 'getGrupo.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
+                                $('#tituloTrabalho').append('<option selected></option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
                                     $('#tituloTrabalho').append('<option>' + dados[i].tituloTrabalho + '</option>');

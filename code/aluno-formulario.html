@@ -129,7 +129,7 @@
 
                         <div class="col-sm-9">
                             <select class="form-control m-b" name="curso" id="curso">
-                                <option selected>Escolha...</option>
+                                <option selected></option>
                                 <option value="Análise e Desenvolvimento de Sistemas">Análise e Desenvolvimento de Sistemas</option>
                                 <option value="Jogos Digitais">Jogos Digitais</option>
                                 <option value="Gestão Empresarial">Gestão Empresarial</option>
@@ -169,7 +169,7 @@
                             dataType: 'json',	//Definimos o tipo de retorno
                             url: 'getProfessor.php',//Definindo o arquivo onde serão buscados os dados
                             success: function (dados) {
-                                $('#orientador').append('<option selected>Escolha...</option>');
+                                $('#orientador').append('<option selected></option>');
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
                                     $('#orientador').append('<option>' + dados[i].nome + '</option>');
