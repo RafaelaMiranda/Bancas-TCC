@@ -151,11 +151,14 @@
                             success: function (dados) {
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
-                                    $('#tabela').append('<tr><td>' + dados[i].nome + '</td><td>' + dados[i].titulacao + '</td></tr>');
+                                    $('#tabela').append('<tr><td>' + dados[i].nome + '</td><td>' + dados[i].titulacao + '</td>' +
+                                        '<td><button><i class="fa fa-edit"></i></button>&nbsp;&nbsp;&nbsp' +
+                                        '<button><i class="fa fa-trash"></i></button></td></tr>');
                                 }
                             }
                         });
                     });
+
                 </script>
 
 
