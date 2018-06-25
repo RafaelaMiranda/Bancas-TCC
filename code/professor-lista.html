@@ -151,12 +151,39 @@
                             success: function (dados) {
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
-                                    $('#tabela').append('<tr><td>' + dados[i].nome + '</td><td>' + dados[i].titulacao + '</td>' +
-                                        '<td><button><i class="fa fa-edit"></i></button>&nbsp;&nbsp;&nbsp' +
-                                        '<button><i class="fa fa-trash"></i></button></td></tr>');
+                                    $('#tabela').append('<tr>'+
+                                                            '<td>' + dados[i].nome + '</td>' +
+                                                            '<td>' + dados[i].titulacao + '</td>' +
+                                                            '<td>' + 
+                                                                '<a id="btnEditar" style="color: black">' +
+                                                                    '<i class="fa fa-edit"></i>' +
+                                                                '</a>&nbsp;&nbsp;&nbsp' +
+                                                                '<a id="btnDeletar" style="color: black">' +
+                                                                    '<input type="hidden" value="' + dados[i].codProfessor + '">' +
+                                                                    '<i class="fa fa-trash"></i>' +
+                                                                '</a>' +
+                                                            '</td>' +
+                                                        '</tr>');
                                 }
                             }
                         });
+                    });
+
+                    $(document).on('click', '#btnDeletar', function (event) {
+                        event.preventDefault();
+
+                        $.ajax({
+                            type: 'POST',		//Definimos o método HTTP usado
+                            dataType: 'json',	//Definimos o tipo de retorno
+                            url: 'deleteProfessor.php',//Definindo o arquivo onde serão buscados os dados
+                            data: {
+                                codProfessor: $(this).find('input')[0].value
+                            }
+
+                        });
+
+                        window.location.reload()
+                                                    
                     });
 
                 </script>

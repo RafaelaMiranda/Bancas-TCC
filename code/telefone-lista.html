@@ -152,11 +152,41 @@
                             success: function (dados) {
                                 for (var i = 0; dados.length > i; i++) {
                                     //Adicionando registros retornados na tabela
-                                    $('#tabela').append('<tr><td>' + dados[i].ra + '</td><td>' + dados[i].numero + '</td><td>' + dados[i].tipo + '</td></tr>');
+                                    $('#tabela').append('<tr>' +
+                                                            '<td>' + dados[i].ra + '</td>' +
+                                                            '<td>' + dados[i].numero + '</td>' +
+                                                            '<td>' + dados[i].tipo + '</td>' +
+                                                            '<td>' +
+                                                                '<a id="btnEditar" style="color: black">' +
+                                                                    '<i class="fa fa-edit"></i>' +
+                                                                '</a>&nbsp;&nbsp;&nbsp' +
+                                                                '<a id="btnDeletar" style="color: black">' +
+                                                                    '<input type="hidden" value="' + dados[i].codTelefone + '">' +
+                                                                    '<i class="fa fa-trash"></i>' +
+                                                                '</a>' +
+                                                            '</td>' +
+                                                        '</tr>');
                                 }
                             }
                         });
                     });
+
+                    $(document).on('click', '#btnDeletar', function (event) {
+                            event.preventDefault();
+
+                            $.ajax({
+                                type: 'POST',		//Definimos o método HTTP usado
+                                dataType: 'json',	//Definimos o tipo de retorno
+                                url: 'deleteTelefone.php',//Definindo o arquivo onde serão buscados os dados
+                                data: {
+                                    codTelefone: $(this).find('input')[0].value
+                                }
+
+                            });
+
+                            window.location.reload()
+
+                        });
                 </script>
 
 
