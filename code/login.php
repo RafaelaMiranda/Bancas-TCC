@@ -13,7 +13,7 @@
       
       else {
         setcookie("login",$login);
-        header("Location:apresentacoes.html");
+        header("Location:index.html");
       }
     }
 ?>

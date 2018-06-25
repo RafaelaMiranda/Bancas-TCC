@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 17-Jun-2018 às 19:15
+-- Generation Time: 26-Jun-2018 às 01:19
 -- Versão do servidor: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -29,24 +29,30 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `aluno` (
-  `ra` char(13) NOT NULL,
-  `codGrupo` int(10) DEFAULT NULL,
-  `codTrabalho` int(10) DEFAULT NULL,
-  `tituloTrabalho` varchar(100) DEFAULT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `orientador` varchar(50) DEFAULT NULL,
-  `areaPesquisa` varchar(50) DEFAULT NULL,
-  `curso` varchar(50) DEFAULT NULL,
-  `email` varchar(70) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `ra` char(13) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `codGrupo` int(11) NOT NULL,
+  `codTrabalho` int(11) NOT NULL,
+  `nome` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `curso` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Extraindo dados da tabela `aluno`
+-- Estrutura da tabela `grupo`
 --
 
-INSERT INTO `aluno` (`ra`, `codGrupo`, `codTrabalho`, `tituloTrabalho`, `nome`, `orientador`, `areaPesquisa`, `curso`, `email`) VALUES
-('0040481612003', NULL, NULL, 'Teste da seguranÃ§a do SIGA', 'Victo Ferreira Lima', 'Antonio Alfredo Lacerda', 'InvasÃ£o', 'SeguranÃ§a da InformaÃ§Ã£o', 'victo84.ferreira@gmail.com'),
-('0040481612045', NULL, NULL, 'Desenvolvimento de um chatbot amigável ', 'Rafaela Gomes de Miranda', 'Diógenes', 'Inteligência Artificial', 'Análise e Desenvolvimento de Sistemas', 'rafaela-gomes@outlook.com');
+CREATE TABLE `grupo` (
+  `codGrupo` int(10) NOT NULL,
+  `tituloTrabalho` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `orientador` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `areaPesquisa` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alunoA` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alunoB` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alunoC` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `alunoD` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -56,18 +62,16 @@ INSERT INTO `aluno` (`ra`, `codGrupo`, `codTrabalho`, `tituloTrabalho`, `nome`, 
 
 CREATE TABLE `professor` (
   `codProfessor` int(10) NOT NULL,
-  `nome` varchar(100) DEFAULT NULL,
-  `titulacao` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `nome` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `titulacao` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `professor`
 --
 
 INSERT INTO `professor` (`codProfessor`, `nome`, `titulacao`) VALUES
-(11, 'Diógenes', 'mestre'),
-(12, 'Antonio Alfredo Lacerda', 'especialista'),
-(13, 'AcÃ¡cia de FÃ¡tima Ventura', 'doutor');
+(17, 'Kleber de Oliveira Andrade', 'mestre');
 
 -- --------------------------------------------------------
 
@@ -76,11 +80,27 @@ INSERT INTO `professor` (`codProfessor`, `nome`, `titulacao`) VALUES
 --
 
 CREATE TABLE `telefone` (
-  `id` int(11) NOT NULL,
-  `numero` varchar(14) DEFAULT NULL,
-  `ra` char(13) DEFAULT NULL,
-  `tipo` varchar(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `codTelefone` int(10) NOT NULL,
+  `numero` varchar(14) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ra` char(13) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tipo` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `trabalho`
+--
+
+CREATE TABLE `trabalho` (
+  `codTrabalho` int(10) NOT NULL,
+  `codGrupo` int(10) DEFAULT NULL,
+  `convidado1` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `convidado2` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `diaApresentacao` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `horario` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sala` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -89,17 +109,17 @@ CREATE TABLE `telefone` (
 --
 
 CREATE TABLE `usuario` (
-  `ID` int(10) UNSIGNED ZEROFILL NOT NULL,
-  `login` varchar(30) DEFAULT NULL,
-  `senha` varchar(40) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `codUsuario` int(10) NOT NULL,
+  `nome` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`ID`, `login`, `senha`) VALUES
-(0000000001, 'Admin', 'AdminAdmin');
+INSERT INTO `usuario` (`codUsuario`, `nome`, `senha`) VALUES
+(1, 'Admin', 'AdminAdmin');
 
 --
 -- Indexes for dumped tables
@@ -112,6 +132,12 @@ ALTER TABLE `aluno`
   ADD PRIMARY KEY (`ra`);
 
 --
+-- Indexes for table `grupo`
+--
+ALTER TABLE `grupo`
+  ADD PRIMARY KEY (`codGrupo`);
+
+--
 -- Indexes for table `professor`
 --
 ALTER TABLE `professor`
@@ -121,36 +147,55 @@ ALTER TABLE `professor`
 -- Indexes for table `telefone`
 --
 ALTER TABLE `telefone`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`codTelefone`),
   ADD KEY `ra` (`ra`);
+
+--
+-- Indexes for table `trabalho`
+--
+ALTER TABLE `trabalho`
+  ADD PRIMARY KEY (`codTrabalho`),
+  ADD KEY `codGrupo` (`codGrupo`);
 
 --
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`codUsuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
+-- AUTO_INCREMENT for table `grupo`
+--
+ALTER TABLE `grupo`
+  MODIFY `codGrupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+
+--
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `codProfessor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `codProfessor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codTelefone` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `trabalho`
+--
+ALTER TABLE `trabalho`
+  MODIFY `codTrabalho` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codUsuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
@@ -161,6 +206,12 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `telefone`
   ADD CONSTRAINT `telefone_ibfk_1` FOREIGN KEY (`ra`) REFERENCES `aluno` (`ra`);
+
+--
+-- Limitadores para a tabela `trabalho`
+--
+ALTER TABLE `trabalho`
+  ADD CONSTRAINT `trabalho_ibfk_1` FOREIGN KEY (`codGrupo`) REFERENCES `grupo` (`codGrupo`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
