@@ -20,11 +20,11 @@
     if(insereApresentacao($conexao, $codGrupo, $convidado1, $convidado2, $diaApresentacao, $horario, $sala)) {
         $codTrabalho = mysqli_fetch_row(mysqli_query($conexao, "SELECT MAX(codTrabalho) FROM Trabalho"));
         $aluno = mysqli_query($conexao, "UPDATE Aluno SET codTrabalho = '$codTrabalho[0]' WHERE codGrupo = '$codGrupo'");
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação adicionado com sucesso');window.location.href='index.html';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação adicionado com sucesso');window.location.href='index.php';</script>";
     }
 
     else {
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser adicionado');window.location.href='apresentacao-formulario.html';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser adicionado');window.location.href='apresentacao-formulario.php';</script>";
         die();
     }
     

@@ -14,16 +14,11 @@
     }
 
     if(insereGrupo($conexao, $tituloTrabalho, $orientador, $areaPesquisa, $alunoA, $alunoB, $alunoC, $alunoD)) {
-        $codGrupo = mysqli_fetch_row(mysqli_query($conexao,"SELECT MAX(codGrupo) FROM Grupo"));
-        $aluno = mysqli_query($conexao, "UPDATE Aluno SET codGrupo = '$codGrupo[0]' WHERE nome = '$alunoA' OR nome = '$alunoB' OR nome = '$alunoC' OR nome = '$alunoD'");
-        echo"<script language='javascript' type='text/javascript'>alert('Grupo adicionado com sucesso');window.location.href='grupo-lista.html';</script>";
+            $codGrupo = mysqli_fetch_row(mysqli_query($conexao,"SELECT MAX(codGrupo) FROM Grupo"));
+            $aluno = mysqli_query($conexao, "UPDATE Aluno SET codGrupo = '$codGrupo[0]' WHERE nome = '$alunoA' OR nome = '$alunoB' OR nome = '$alunoC' OR nome = '$alunoD'");
+            echo"<script language='javascript' type='text/javascript'>alert('Grupo adicionado com sucesso');window.location.href='grupo-lista.php';</script>";
+        } else { 
+            echo"<script language='javascript' type='text/javascript'>alert('Grupo não pode ser adicionado');window.location.href='grupo-formulario.php';</script>";
+            die();
         }
-
-    else {
-        echo"<script language='javascript' type='text/javascript'>alert('Grupo não pode ser adicionado');window.location.href='grupo-formulario.html';</script>";
-        die();
-    }
-
-        
-    
 ?>
