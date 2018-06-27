@@ -33,6 +33,14 @@
                                         <td><?= $apresentacao['orientador'] ?></td>
                                         <td><?= $apresentacao['convidado1'] ?></td>
                                         <td><?= $apresentacao['convidado2'] ?></td>
+                                        <td>
+                                            <a id="btnEditar" style="color: black">                                 
+                                                <i class="fa fa-edit"></i>
+                                            </a>&nbsp;&nbsp;&nbsp;
+                                            <a id="btnDeletar" style="color: black" href="delete-apresentacao.php?codTrabalho=<?= $apresentacao['codTrabalho']?>">
+                                                <i class="fa fa-trash"></i> 
+                                            </a>
+                                        </td>
                                     </tbody>
                                     <?php
                                         endforeach

@@ -2,7 +2,8 @@
     function listaApresentacoes($conexao) {
         $apresentacoes = array();
         $resultado = mysqli_query($conexao, 
-        "SELECT T.diaApresentacao,
+        "SELECT T.codTrabalho,
+                T.diaApresentacao,
                 T.horario,
                 A.curso,
                 T.sala,

@@ -31,6 +31,14 @@
                                         <td><?= $grupo['alunoB'] ?></td>
                                         <td><?= $grupo['alunoC'] ?></td>
                                         <td><?= $grupo['alunoD'] ?></td>
+                                        <td>
+                                            <a id="btnEditar" style="color: black">                                 
+                                                <i class="fa fa-edit"></i>
+                                            </a>&nbsp;&nbsp;&nbsp;
+                                            <a id="btnDeletar" style="color: black" href="delete-grupo.php?codGrupo=<?= $grupo['codGrupo']?>">
+                                                <i class="fa fa-trash"></i> 
+                                            </a>
+                                        </td>
                                     </tbody>
                                     <?php
                                         endforeach

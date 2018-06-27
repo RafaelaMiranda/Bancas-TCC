@@ -21,6 +21,14 @@
                                     <tbody>
                                         <td><?= $professor['nome'] ?></td>
                                         <td><?= $professor['titulacao'] ?></td>
+                                        <td>
+                                            <a id="btnEditar" style="color: black">                                 
+                                                <i class="fa fa-edit"></i>
+                                            </a>&nbsp;&nbsp;&nbsp;
+                                            <a id="btnDeletar" style="color: black" href="delete-professor.php?codProfessor=<?= $professor['codProfessor']?>">
+                                                <i class="fa fa-trash"></i> 
+                                            </a>
+                                        </td>
                                     </tbody>
                                     <?php
                                         endforeach
