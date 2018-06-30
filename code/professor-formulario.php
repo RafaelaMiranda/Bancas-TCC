@@ -1,5 +1,6 @@
 <?php include('cabecalho.php');
       include('conecta.php'); ?>
+
                 <form method="POST" action="adiciona-professor.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Nome</label>
@@ -14,7 +15,7 @@
                         <div class="col-sm-10">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="titulacao" value="graduado"> Graduado </label>
+                                    <input type="radio" name="titulacao" value="graduado" > Graduado </label>
                             </div>
 
                             <div class="radio">

@@ -26,7 +26,7 @@
                                         <td><?= $aluno['curso'] ?></td>
                                         <td><?= $aluno['email'] ?></td>
                                         <td>
-                                            <a id="btnEditar" style="color: black">                                 
+                                            <a id="btnEditar" style="color: black" href="aluno-formulario-edicao.php?ra=<?= $aluno['ra'] ?>">                                 
                                                 <i class="fa fa-edit"></i>
                                             </a>&nbsp;&nbsp;&nbsp;
                                             <a id="btnDeletar" style="color: black" href="delete-aluno.php?ra=<?= $aluno['ra']?>">

@@ -32,7 +32,7 @@
                                         <td><?= $grupo['alunoC'] ?></td>
                                         <td><?= $grupo['alunoD'] ?></td>
                                         <td>
-                                            <a id="btnEditar" style="color: black">                                 
+                                            <a id="btnEditar" style="color: black" href="grupo-formulario-edicao.php?codGrupo=<?= $grupo['codGrupo']?>">                                 
                                                 <i class="fa fa-edit"></i>
                                             </a>&nbsp;&nbsp;&nbsp;
                                             <a id="btnDeletar" style="color: black" href="delete-grupo.php?codGrupo=<?= $grupo['codGrupo']?>">

@@ -34,7 +34,7 @@
                                         <td><?= $apresentacao['convidado1'] ?></td>
                                         <td><?= $apresentacao['convidado2'] ?></td>
                                         <td>
-                                            <a id="btnEditar" style="color: black">                                 
+                                            <a id="btnEditar" style="color: black" href="apresentacao-formulario-edicao.php?codTrabalho=<?= $apresentacao['codTrabalho']?>">                                 
                                                 <i class="fa fa-edit"></i>
                                             </a>&nbsp;&nbsp;&nbsp;
                                             <a id="btnDeletar" style="color: black" href="delete-apresentacao.php?codTrabalho=<?= $apresentacao['codTrabalho']?>">

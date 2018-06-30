@@ -25,7 +25,7 @@
                                         <td><?= $telefone['numero'] ?></td>
                                         <td><?= $telefone['tipo'] ?></td>
                                         <td>
-                                            <a id="btnEditar" style="color: black">                                 
+                                            <a id="btnEditar" style="color: black" href="telefone-formulario-edicao.php?codTelefone=<?= $telefone['codTelefone']?>">                                 
                                                 <i class="fa fa-edit"></i>
                                             </a>&nbsp;&nbsp;&nbsp;
                                             <a id="btnDeletar" style="color: black" href="delete-telefone.php?codTelefone=<?= $telefone['codTelefone']?>">
