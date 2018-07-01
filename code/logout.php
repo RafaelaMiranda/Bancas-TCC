@@ -1,5 +1,4 @@
 <?php  
-    session_start();
-    session_destroy();  
-    header("Location: login.html");//use for the redirection to some page  
+    setcookie("numLogin");
+    header("Location: index.html");//use for the redirection to some page  
 ?>  

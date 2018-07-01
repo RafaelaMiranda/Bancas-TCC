@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>JVR - Acadêmico</title>
+    
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -33,7 +34,7 @@
                         <img src="http://www.fatec.edu.br/wp-content/themes/fatec/img/logo-colorido.png" height="80" />
                     </li>
                     <li>
-                        <a href="index.php">
+                        <a href="apresentacao-lista.php">
                             <i class="fa fa-th-large"></i>
                             <span class="nav-label">Apresentações</span>
                         </a>

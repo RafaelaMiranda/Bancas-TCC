@@ -57,10 +57,10 @@ server {
 
 
   root        /data/www;
-  index       index.html index.php;
+  index       index.html apresentacao-lista.php;
 
   location / {
-    index index.html index.php;     ## Allow a static html file to be shown first
+    index index.html apresentacao-lista.php;     ## Allow a static html file to be shown first
     try_files $uri $uri/ @handler;  ## If missing pass the URI to Magento's front handler
     expires 30d;                    ## Assume all files are cachable
   }
@@ -85,18 +85,18 @@ server {
   }
 
   location @handler { ## Magento uses a common front handler
-    rewrite / /index.php;
+    rewrite / /apresentacao-lista.php;
   }
 
-  location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
+  location ~ .php/ { ## Forward paths like /js/apresentacao-lista.php/x.js to relevant handler
     rewrite ^/(.*.php)/ /$1 last;
   }
 
   location ~ \.php$ {
-    if (!-e $request_filename) { rewrite / /index.php last; } ## Catch 404s that try_files miss
+    if (!-e $request_filename) { rewrite / /apresentacao-lista.php last; } ## Catch 404s that try_files miss
 
     fastcgi_pass   127.0.0.1:9000;
-    fastcgi_index  index.php;
+    fastcgi_index  apresentacao-lista.php;
     fastcgi_param PATH_INFO $fastcgi_script_name;
     fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include        /rs/confs/nginx/fastcgi_params;
@@ -111,7 +111,7 @@ server {
   server_name         website.com.au www.website.com.au;
 
   root   /data/www;
-  index index.html index.php;
+  index index.html apresentacao-lista.php;
 
   ssl                 on;
   ssl_certificate     /rs/ssl/ssl.crt;
@@ -126,7 +126,7 @@ server {
 
 
   location / {
-    index index.html index.php; ## Allow a static html file to be shown first
+    index index.html apresentacao-lista.php; ## Allow a static html file to be shown first
     try_files $uri $uri/ @handler; ## If missing pass the URI to Magento's front handler
     expires 30d; ## Assume all files are cachable
   }
@@ -151,18 +151,18 @@ server {
   }
 
   location @handler { ## Magento uses a common front handler
-    rewrite / /index.php;
+    rewrite / /apresentacao-lista.php;
   }
 
-  location ~ .php/ { ## Forward paths like /js/index.php/x.js to relevant handler
+  location ~ .php/ { ## Forward paths like /js/apresentacao-lista.php/x.js to relevant handler
     rewrite ^/(.*.php)/ /$1 last;
   }
 
   location ~ .php$ { ## Execute PHP scripts
-    if (!-e $request_filename) { rewrite  /index.php last; } ## Catch 404s that try_files miss
+    if (!-e $request_filename) { rewrite  /apresentacao-lista.php last; } ## Catch 404s that try_files miss
 
     fastcgi_pass 127.0.0.1:9000;
-    fastcgi_index  index.php;
+    fastcgi_index  apresentacao-lista.php;
     fastcgi_param PATH_INFO $fastcgi_script_name;
     fastcgi_param  SCRIPT_FILENAME $document_root$fastcgi_script_name;
     include        /rs/confs/nginx/fastcgi_params;

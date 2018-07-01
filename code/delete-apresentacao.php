@@ -8,9 +8,9 @@
   }
 
     if(deleteApresentacao($conexao, $codTrabalho)) {
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação deletado com sucesso');window.location.href='index.php';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação deletado com sucesso');window.location.href='apresentacao-lista.php';</script>";
     } else { 
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser deletado');window.location.href='index.php';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser deletado');window.location.href='apresentacao-lista.php';</script>";
         die();
     }
 ?>

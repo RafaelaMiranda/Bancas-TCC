@@ -13,9 +13,9 @@
   }
 
     if(updateApresentacao($conexao, $codTrabalho, $convidado1, $convidado2, $diaApresentacao, $horario, $sala)) {
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação editado com sucesso');window.location.href='index.php';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação editado com sucesso');window.location.href='apresentacao-lista.php';</script>";
     } else { 
-        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser editado');window.location.href='index.php';</script>";
+        echo"<script language='javascript' type='text/javascript'>alert('Apresentação não pode ser editado');window.location.href='apresentacao-lista.php';</script>";
         die();
     }
 ?>
