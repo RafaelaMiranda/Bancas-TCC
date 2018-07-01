@@ -19,6 +19,7 @@
                         <label class="col-sm-2 control-label">Nome</label>
 
                         <div class="col-sm-9">
+                            <input type="hidden" id="ra" name="ra" class="form-control" value="<?php echo $ra; ?>">
                             <input type="text" id="nome" name="nome" class="form-control" value="<?php echo $nome; ?>">
                         </div>
                     </div>

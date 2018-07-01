@@ -21,7 +21,7 @@
                         <label class="col-sm-2 control-label">Número</label>
 
                         <div class="col-sm-9">
-                            <input type="text" id="numero" name="numero" class="form-control" value="<?php echo $numero; ?>">
+                         <input type="text" id="numero" name="numero" class="form-control" value="<?php echo $numero; ?>">
                         </div>
                     </div>
                     <!--<div class="form-group">

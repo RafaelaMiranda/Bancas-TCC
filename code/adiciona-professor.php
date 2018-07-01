@@ -8,6 +8,12 @@
         return mysqli_query($conexao, $query);
     }
 
+    if($nome == '') {
+        echo"<script language='javascript' type='text/javascript'>alert('Favor preecher o campo com seu nome');window.location.href='professor-formulario.php';</script>";
+    } else if($titulacao == '') {
+        echo"<script language='javascript' type='text/javascript'>alert('Favor escolher a sua titulação');window.location.href='professor-formulario.php';</script>";  
+    }
+
     if(insereProfessor($conexao, $nome, $titulacao)) {
             echo"<script language='javascript' type='text/javascript'>alert('Professor adicionado com sucesso');window.location.href='professor-lista.php';</script>";
         } else { 
