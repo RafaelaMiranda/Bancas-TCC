@@ -1,4 +1,4 @@
 <?php  
-    setcookie("numLogin");
-    header("Location: index.html");//use for the redirection to some page  
-?>  
+    setcookie("login", $login, time()-36000);
+    header("Location: index.html");
+?>

@@ -3,7 +3,7 @@
       include('lista-grupo.php');
       include('lista-professor.php'); ?>
 
-                <form method="POST" action="edita-apresentacao.php" class="form-horizontal" accept-charset="utf-8">
+                <form method="POST" action="adiciona-apresentacao.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Trabalho</label>
