@@ -12,7 +12,6 @@
                                         <tr>
                                             <th>Data</th>
                                             <th>Horário</th>
-                                            <th>Curso</th>
                                             <th>Sala</th>
                                             <th>Título</th>
                                             <th>Orientador</th>
@@ -27,7 +26,6 @@
                                     <tbody>
                                         <td><?= $apresentacao['diaApresentacao'] ?></td>
                                         <td><?= $apresentacao['horario'] ?></td>
-                                        <td><?= $apresentacao['curso'] ?></td>
                                         <td><?= $apresentacao['sala'] ?></td>
                                         <td><?= $apresentacao['tituloTrabalho'] ?></td>
                                         <td><?= $apresentacao['orientador'] ?></td>
