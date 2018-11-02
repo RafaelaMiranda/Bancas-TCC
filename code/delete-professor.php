@@ -3,7 +3,7 @@
     $codProfessor = $_GET["codProfessor"];
 
   function deleteProfessor($conexao, $codProfessor) {
-    $query = "DELETE FROM Professor WHERE codProfessor = '{$codProfessor}'";
+    $query = "DELETE FROM professor WHERE codProfessor = '{$codProfessor}'";
     return mysqli_query($conexao, $query);
   }
 

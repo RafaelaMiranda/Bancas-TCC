@@ -3,7 +3,7 @@
     $ra = $_GET["ra"];
 
   function deleteAluno($conexao, $ra) {
-    $query = "DELETE FROM Aluno WHERE ra = '{$ra}'";
+    $query = "DELETE FROM aluno WHERE ra = '{$ra}'";
     return mysqli_query($conexao, $query);
   }
 

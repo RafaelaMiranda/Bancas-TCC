@@ -9,7 +9,7 @@
     $alunoD = $_POST["alunoD"];
 
     function insereGrupo($conexao, $tituloTrabalho, $orientador, $areaPesquisa, $alunoA, $alunoB, $alunoC, $alunoD) {
-        $query = "INSERT INTO Grupo (tituloTrabalho, orientador, areaPesquisa, alunoA, alunoB, alunoC, alunoD) VALUES ('{$tituloTrabalho}','{$orientador}','{$areaPesquisa}','{$alunoA}','{$alunoB}','{$alunoC}','{$alunoD}')";
+        $query = "INSERT INTO grupo (tituloTrabalho, orientador, areaPesquisa, alunoA, alunoB, alunoC, alunoD) VALUES ('{$tituloTrabalho}','{$orientador}','{$areaPesquisa}','{$alunoA}','{$alunoB}','{$alunoC}','{$alunoD}')";
         return mysqli_query($conexao, $query);
     }
 

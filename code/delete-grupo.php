@@ -3,7 +3,7 @@
     $codGrupo = $_GET["codGrupo"];
 
   function deleteGrupo($conexao, $codGrupo) {
-    $query = "DELETE FROM Grupo WHERE codGrupo = '{$codGrupo}'";
+    $query = "DELETE FROM grupo WHERE codGrupo = '{$codGrupo}'";
     return mysqli_query($conexao, $query);
   }
 

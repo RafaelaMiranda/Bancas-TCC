@@ -10,8 +10,8 @@
                 G.orientador,
                 T.convidado1,
                 T.convidado2
-        FROM Trabalho T
-        INNER JOIN Grupo G ON T.codGrupo = G.codGrupo");
+        FROM trabalho T
+        INNER JOIN grupo G ON T.codGrupo = G.codGrupo");
         while($apresentacao = mysqli_fetch_assoc($resultado)) {
             array_push($apresentacoes, $apresentacao);
         }

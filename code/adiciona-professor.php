@@ -4,7 +4,7 @@
         $titulacao = $_POST["titulacao"];
       
     function insereProfessor($conexao,$nome, $titulacao) {
-        $query = "INSERT INTO Professor (nome, titulacao) VALUES ('{$nome}','{$titulacao}')";
+        $query = "INSERT INTO professor (nome, titulacao) VALUES ('{$nome}','{$titulacao}')";
         return mysqli_query($conexao, $query);
     }
 

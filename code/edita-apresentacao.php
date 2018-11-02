@@ -8,7 +8,7 @@
     $sala = $_POST['sala'];
             
   function updateApresentacao($conexao, $codTrabalho, $convidado1, $convidado2, $diaApresentacao, $horario, $sala) {
-    $query = "UPDATE Trabalho SET convidado1 = '{$convidado1}', convidado2 = '{$convidado2}', diaApresentacao = '{$diaApresentacao}', horario = '{$horario}', sala = '{$sala}' WHERE codTrabalho = '{$codTrabalho}'";
+    $query = "UPDATE trabalho SET convidado1 = '{$convidado1}', convidado2 = '{$convidado2}', diaApresentacao = '{$diaApresentacao}', horario = '{$horario}', sala = '{$sala}' WHERE codTrabalho = '{$codTrabalho}'";
     return mysqli_query($conexao, $query);
   }
 

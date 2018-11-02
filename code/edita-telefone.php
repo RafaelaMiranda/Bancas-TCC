@@ -5,9 +5,8 @@
     $ra = $_POST["ra"];
     $tipo = $_POST["tipo"];
 
-
   function updateTelefone($conexao, $codTelefone, $numero, $ra, $tipo) {
-    $query = "UPDATE Telefone SET numero = '{$numero}', ra = '{$ra}', tipo = '{$tipo}' WHERE codTelefone = '{$codTelefone}'";
+    $query = "UPDATE telefone SET numero = '{$numero}', ra = '{$ra}', tipo = '{$tipo}' WHERE codTelefone = '{$codTelefone}'";
     return mysqli_query($conexao, $query);
   }
 

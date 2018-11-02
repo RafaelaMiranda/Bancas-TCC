@@ -10,7 +10,7 @@
     $alunoD = $_POST['alunoD'];
             
   function updateGrupo($conexao, $codGrupo, $tituloTrabalho, $orientador, $areaPesquisa, $alunoA, $alunoB, $alunoC, $alunoD ) {
-    $query = "UPDATE Grupo SET tituloTrabalho = '{$tituloTrabalho}', orientador = '{$orientador}', areaPesquisa = '{$areaPesquisa}', alunoA = '{$alunoA}', alunoB = '{$alunoB}', alunoC = '{$alunoC}', alunoD = '{$alunoD}' WHERE codGrupo = '{$codGrupo}'";
+    $query = "UPDATE grupo SET tituloTrabalho = '{$tituloTrabalho}', orientador = '{$orientador}', areaPesquisa = '{$areaPesquisa}', alunoA = '{$alunoA}', alunoB = '{$alunoB}', alunoC = '{$alunoC}', alunoD = '{$alunoD}' WHERE codGrupo = '{$codGrupo}'";
     return mysqli_query($conexao, $query);
   }
 

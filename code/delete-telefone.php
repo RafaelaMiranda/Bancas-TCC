@@ -3,7 +3,7 @@
     $codTelefone = $_GET["codTelefone"];
 
   function deleteTelefone($conexao, $codTelefone) {
-    $query = "DELETE FROM Telefone WHERE codTelefone = '{$codTelefone}'";
+    $query = "DELETE FROM telefone WHERE codTelefone = '{$codTelefone}'";
     return mysqli_query($conexao, $query);
   }
 

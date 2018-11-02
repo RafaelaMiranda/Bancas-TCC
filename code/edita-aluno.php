@@ -7,7 +7,7 @@
 
 
   function updateAluno($conexao, $ra, $nome, $email, $curso) {
-    $query = "UPDATE Aluno SET ra = '{$ra}', nome = '{$nome}', email = '{$email}', curso = '{$curso}' WHERE ra = '{$ra}'";
+    $query = "UPDATE aluno SET ra = '{$ra}', nome = '{$nome}', email = '{$email}', curso = '{$curso}' WHERE ra = '{$ra}'";
     return mysqli_query($conexao, $query);
   }
 
