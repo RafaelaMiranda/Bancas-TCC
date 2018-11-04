@@ -62,6 +62,9 @@
                             <li>
                                 <a href="apresentacao-formulario.php">Trabalho</a>
                             </li>
+                            <li>
+                                <a href="usuario-formulario.php">Usuario</a>
+                            </li>
                         </ul>
                     </li>
 
@@ -83,6 +86,9 @@
                             </li>
                             <li>
                                 <a href="grupo-lista.php">Grupo</a>
+                            </li>
+                            <li>
+                                <a href="usuario-lista.php">Usuario</a>
                             </li>
                         </ul>
                     </li>

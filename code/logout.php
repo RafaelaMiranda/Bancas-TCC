@@ -1,4 +1,6 @@
 <?php  
-    setcookie("login", $login, time()-36000);
+    session_start();
+    session_destroy();
     header("Location: index.html");
+    exit;
 ?>
