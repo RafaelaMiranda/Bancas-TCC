@@ -66,8 +66,8 @@
                                 <a href="usuario-formulario.php">Usuario</a>
                             </li>
                         </ul>
+                        
                     </li>
-
                     <li>
                         <a href="#">
                             <i class="fa fa-table"></i>
@@ -91,6 +91,13 @@
                                 <a href="usuario-lista.php">Usuario</a>
                             </li>
                         </ul>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="trocaSenha-formulario.php?user=<?= session_start(); $_SESSION['user']; ?>">
+                            <i class="fa fa-cog"></i>
+                            <span class="nav-label">Configuração</span>
+                        </a>
                     </li>
                 </ul>
 

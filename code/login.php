@@ -1,5 +1,5 @@
 <?php include('conecta.php');
-  
+  session_start();
   $login = $_POST['login'];
   $senha = md5($_POST['senha']);
   $status = "1";
@@ -11,6 +11,7 @@
       $linha = mysqli_affected_rows($connect);
 
       if($linha > 0 || (isset($_COOKIE['login']) && $_COOKIE['login'] == 'admin')){
+          $_SESSION['user'] = $login;
           setcookie("login", $login, time()+36000);
           header("Location:apresentacao-lista.php");
       } 
