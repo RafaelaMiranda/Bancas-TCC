@@ -1,6 +1,7 @@
-<?php include('cabecalho.php');
-      include('conecta.php');
-      include('lista-apresentacao.php'); ?>
+<?php include('conecta.php');
+      include('cabecalho.php');
+      include('lista-apresentacao.php'); 
+?>
 
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">

@@ -1,7 +1,7 @@
-<?php include('cabecalho.php'); 
-      include('conecta.php'); ?>
+<?php include('conecta.php');
+      include('cabecalho.php');?>
 
-                    <form method="POST" action="adiciona-usuario.php" class="form-horizontal" accept-charset="utf-8">
+                    <form method="POST" action="edita-senha.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
                         <label class="col-sm-2 control-label">Senha atual</label>
 

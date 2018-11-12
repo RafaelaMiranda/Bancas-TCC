@@ -21,6 +21,8 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
+    
+    <?php session_start();?>
 </head>
 
 <body>
@@ -94,7 +96,7 @@
                     </a>
                     </li>
                     <li>
-                        <a href="trocaSenha-formulario.php?user=<?= session_start(); $_SESSION['user']; ?>">
+                        <a href="trocaSenha-formulario.php">
                             <i class="fa fa-cog"></i>
                             <span class="nav-label">Configuração</span>
                         </a>
