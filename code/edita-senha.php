@@ -5,6 +5,12 @@
     $confirme_senha = $_POST["confirme_senha"];
     $verifica =  mysqli_query($conexao,"SELECT senha from usuario WHERE codusuario = '{$_SESSION['codUser']}'");
     $numero =  mysqli_fetch_assoc($verifica);
+
+    $acao = "update";
+    date_default_timezone_set('America/Sao_Paulo');
+    $creat_at = date("d-m-Y H:i:s");
+    $user = $_SESSION['codUser'];
+    $tabela = "usuario";
   
   if(md5($senha_atual) == $numero["senha"]){
     if($senha_nova == $confirme_senha){
@@ -14,6 +20,7 @@
       }
   
       if(updateSenha($conexao, $senha_atual, $senha_nova, $confirme_senha)) {
+        $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$user}', '{$tabela}')");
         echo"<script language='javascript' type='text/javascript'>alert('Senha alterada com sucesso');window.location.href='trocaSenha-formulario.php';</script>";
       } 
         

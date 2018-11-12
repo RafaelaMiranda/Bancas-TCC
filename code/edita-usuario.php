@@ -1,10 +1,16 @@
 <?php include("conecta.php");
-
+    session_start();
     $codUsuario = $_POST['codUsuario'];
     $nome = $_POST["nome"];
     $user = $_POST["user"];
     $email = $_POST["email"];
     $status = $_POST["status"];
+
+    $acao = "update";
+    date_default_timezone_set('America/Sao_Paulo');
+    $creat_at = date("d-m-Y H:i:s");
+    $usuario = $_SESSION['codUser'];
+    $tabela = "usuario";
 
 
   function updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status) {
@@ -21,6 +27,7 @@
   }
 
     if(updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status)) {
+        $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");
         echo"<script language='javascript' type='text/javascript'>alert('Usuario editado com sucesso');window.location.href='usuario-lista.php';</script>";
     } else { 
         echo"<script language='javascript' type='text/javascript'>alert('Usuario não pode ser editado');window.location.href='usuario-lista.php';</script>";

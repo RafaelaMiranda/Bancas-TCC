@@ -1,9 +1,15 @@
 <?php include('conecta.php');
-
+    session_start();
     $nome = $_POST["nome"];
     $ra = $_POST["ra"];
     $curso = $_POST["curso"];
     $email = $_POST["email"];
+
+    $acao = "insert";
+    date_default_timezone_set('America/Sao_Paulo');
+    $creat_at = date("d-m-Y H:i:s");
+    $user = $_SESSION['codUser'];
+    $tabela = "aluno";
 
     function insereAluno($conexao, $nome, $ra, $curso, $email) {
         $query = "INSERT INTO aluno (nome, ra, curso, email) VALUES ('{$nome}','{$ra}','{$curso}','{$email}')";
@@ -21,8 +27,9 @@
     }
     
     else if(insereAluno($conexao, $nome, $ra, $curso, $email)) {
+            $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$user}', '{$tabela}')");
             echo"<script language='javascript' type='text/javascript'>alert('Aluno adicionado com sucesso');window.location.href='aluno-lista.php';</script>";
-        } else { 
+    }else { 
             echo"<script language='javascript' type='text/javascript'>alert('Aluno não pode ser adicionado');window.location.href='aluno-formulario.php';</script>";
             die();
         }

@@ -1,9 +1,15 @@
 <?php include("conecta.php");
-
+    session_start();
     $ra = $_POST['ra'];
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $curso = $_POST["curso"];
+
+    $acao = "update";
+    date_default_timezone_set('America/Sao_Paulo');
+    $creat_at = date("d-m-Y H:i:s");
+    $user = $_SESSION['codUser'];
+    $tabela = "aluno";
 
 
   function updateAluno($conexao, $ra, $nome, $email, $curso) {
@@ -20,6 +26,7 @@
   }
 
     if(updateAluno($conexao, $ra, $nome, $email, $curso)) {
+        $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$user}', '{$tabela}')");
         echo"<script language='javascript' type='text/javascript'>alert('Aluno editado com sucesso');window.location.href='aluno-lista.php';</script>";
     } else { 
         echo"<script language='javascript' type='text/javascript'>alert('Aluno não pode ser editado');window.location.href='aluno-lista.php';</script>";
