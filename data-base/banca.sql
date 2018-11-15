@@ -2,10 +2,10 @@
 -- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: 02-Jul-2018 às 03:29
--- Versão do servidor: 10.1.32-MariaDB
--- PHP Version: 7.2.5
+-- Host: localhost
+-- Generation Time: 15-Nov-2018 às 18:25
+-- Versão do servidor: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,15 +37,6 @@ CREATE TABLE `aluno` (
   `email` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Extraindo dados da tabela `aluno`
---
-
-INSERT INTO `aluno` (`ra`, `codGrupo`, `codTrabalho`, `nome`, `curso`, `email`) VALUES
-('0040481612003', 1, 1, 'Victo Ferreira Lima', 'Análise e Desenvolvimento de Sistemas', 'victo84.ferreira@gmail.com'),
-('0040481612045', 1, 1, 'Rafaela Gomes de Miranda', 'Análise e Desenvolvimento de Sistemas', 'rafsbrug@gmail.com'),
-('0040481612048', 2, 2, 'Victor Angelo Marcorin', 'Jogos Digitais', 'victor@hotmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -68,8 +59,41 @@ CREATE TABLE `grupo` (
 --
 
 INSERT INTO `grupo` (`codGrupo`, `tituloTrabalho`, `orientador`, `areaPesquisa`, `alunoA`, `alunoB`, `alunoC`, `alunoD`) VALUES
-(1, 'Desenvolvimento de um chatbot amigável ', 'Kleber de Oliveira Andrade', 'Inteligência Artificial', 'Rafaela Gomes de Miranda', 'Victo Ferreira Lima', '', ''),
-(2, 'Jogo para saúde', 'Cleberson Eugenio Forte', 'Jogo', 'Victor Angelo Marcorin', '', '', '');
+(1, 'Desenvolvendo um chatbot amigavél ', 'Benedito Luciano Antunes de França', 'I.A', 'Rafaela Miranda', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `logs`
+--
+
+CREATE TABLE `logs` (
+  `id` int(11) NOT NULL,
+  `acao` varchar(10) NOT NULL,
+  `creat_at` varchar(50) NOT NULL,
+  `user` int(11) NOT NULL,
+  `tabela` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `logs`
+--
+
+INSERT INTO `logs` (`id`, `acao`, `creat_at`, `user`, `tabela`) VALUES
+(5, 'insert', '12-11-2018 21:07:54', 7, 'aluno'),
+(6, 'delete', '12-11-2018 21:08:05', 7, 'aluno'),
+(7, 'update', '12-11-2018 21:08:33', 7, 'professor'),
+(8, 'update', '12-11-2018 21:08:43', 7, 'professor'),
+(9, 'update', '12-11-2018 21:10:54', 7, 'usuario'),
+(10, 'insert', '12-11-2018 21:11:28', 7, 'usuario'),
+(11, 'update', '12-11-2018 21:11:51', 7, 'usuario'),
+(12, 'insert', '12-11-2018 21:13:29', 7, 'usuario'),
+(13, 'insert', '12-11-2018 21:13:57', 9, 'professor'),
+(14, 'delete', '12-11-2018 21:16:09', 9, 'professor'),
+(15, 'update', '15-11-2018 15:11:15', 9, 'usuario'),
+(16, 'update', '15-11-2018 15:11:31', 9, 'usuario'),
+(17, 'insert', '15-11-2018 15:20:26', 9, 'usuario'),
+(18, 'update', '15-11-2018 15:20:41', 9, 'usuario');
 
 -- --------------------------------------------------------
 
@@ -213,13 +237,6 @@ CREATE TABLE `telefone` (
   `tipo` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Extraindo dados da tabela `telefone`
---
-
-INSERT INTO `telefone` (`codTelefone`, `numero`, `ra`, `tipo`) VALUES
-(1, '(19) 3457-6781', '0040481612045', 'fixo');
-
 -- --------------------------------------------------------
 
 --
@@ -236,14 +253,6 @@ CREATE TABLE `trabalho` (
   `sala` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
---
--- Extraindo dados da tabela `trabalho`
---
-
-INSERT INTO `trabalho` (`codTrabalho`, `codGrupo`, `convidado1`, `convidado2`, `diaApresentacao`, `horario`, `sala`) VALUES
-(1, 1, 'Antonio Alfredo Lacerda', 'Rogério Nunes de Freitas', '19/12/2018', '14h00', 'B-9'),
-(2, 2, 'Kleber de Oliveira Andrade', 'Benedito Luciano Antunes de França', '23/05/2018', '20h30', 'C-11');
-
 -- --------------------------------------------------------
 
 --
@@ -252,16 +261,43 @@ INSERT INTO `trabalho` (`codTrabalho`, `codGrupo`, `convidado1`, `convidado2`, `
 
 CREATE TABLE `usuario` (
   `codUsuario` int(10) NOT NULL,
-  `nome` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `senha` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `nome` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `senha` varchar(35) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` tinyint(1) DEFAULT NULL,
+  `nivel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `usuario`
 --
 
-INSERT INTO `usuario` (`codUsuario`, `nome`, `senha`) VALUES
-(2, 'admin', 'admin');
+INSERT INTO `usuario` (`codUsuario`, `nome`, `user`, `email`, `senha`, `status`, `nivel`) VALUES
+(7, 'Rafaela Miranda', 'rafa', 'rafaela-gomes@outlook.com', 'bb2e7f6c5352d025e37e13a567206ed1', 1, 9),
+(9, 'Rafaela Miranda', 'admin', 'rafsbrug@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 7),
+(14, 'Valdirene Miranda', 'val', 'teste@teste.com.br', '81dc9bdb52d04dc20036dbd8313ed055', 1, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuarioNivel`
+--
+
+CREATE TABLE `usuarioNivel` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuarioNivel`
+--
+
+INSERT INTO `usuarioNivel` (`id`, `nome`) VALUES
+(7, 'Administrador'),
+(8, 'Secretaria'),
+(9, 'Professor'),
+(10, 'Indefinido');
 
 --
 -- Indexes for dumped tables
@@ -278,6 +314,12 @@ ALTER TABLE `aluno`
 --
 ALTER TABLE `grupo`
   ADD PRIMARY KEY (`codGrupo`);
+
+--
+-- Indexes for table `logs`
+--
+ALTER TABLE `logs`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `professor`
@@ -303,7 +345,14 @@ ALTER TABLE `trabalho`
 -- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`codUsuario`);
+  ADD PRIMARY KEY (`codUsuario`),
+  ADD KEY `fk_nivelUsuario` (`nivel`);
+
+--
+-- Indexes for table `usuarioNivel`
+--
+ALTER TABLE `usuarioNivel`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -313,31 +362,43 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `codGrupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codGrupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `logs`
+--
+ALTER TABLE `logs`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `codProfessor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
+  MODIFY `codProfessor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `codTelefone` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codTelefone` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `trabalho`
 --
 ALTER TABLE `trabalho`
-  MODIFY `codTrabalho` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codTrabalho` int(10) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codUsuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `codUsuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `usuarioNivel`
+--
+ALTER TABLE `usuarioNivel`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Constraints for dumped tables
@@ -354,6 +415,12 @@ ALTER TABLE `telefone`
 --
 ALTER TABLE `trabalho`
   ADD CONSTRAINT `trabalho_ibfk_1` FOREIGN KEY (`codGrupo`) REFERENCES `grupo` (`codGrupo`);
+
+--
+-- Limitadores para a tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD CONSTRAINT `fk_nivelUsuario` FOREIGN KEY (`nivel`) REFERENCES `usuarioNivel` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
