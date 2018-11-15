@@ -5,6 +5,7 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     $status = 1;
+    $nivel = 10;
 
     $acao = "insert";
     date_default_timezone_set('America/Sao_Paulo');
@@ -12,8 +13,8 @@
     $usuario = $_SESSION['codUser'];
     $tabela = "usuario";
 
-    function insereUsuario($conexao, $nome, $user, $email, $senha, $status) {
-        $query = "INSERT INTO usuario (nome, user, email, senha, status) VALUES ('{$nome}','{$user}','{$email}',md5('{$senha}'), '{$status}')";
+    function insereUsuario($conexao, $nome, $user, $email, $senha, $status, $nivel) {
+        $query = "INSERT INTO usuario (nome, user, email, senha, status, nivel) VALUES ('{$nome}','{$user}','{$email}',md5('{$senha}'), '{$status}', '{$nivel}')";
         return mysqli_query($conexao, $query);
     }
 
@@ -28,7 +29,7 @@
         echo"<script language='javascript' type='text/javascript'>alert('Favor inserir sua senha!');window.location.href='aluno-formulario.php';</script>";  
     } 
     
-    else if(insereUsuario($conexao, $nome, $user, $email, $senha, $status)) {
+    else if(insereUsuario($conexao, $nome, $user, $email, $senha, $status, $nivel)) {
             $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");    
             echo"<script language='javascript' type='text/javascript'>alert('Usuario adicionado com sucesso');window.location.href='usuario-lista.php';</script>";
         } else { 

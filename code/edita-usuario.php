@@ -5,6 +5,7 @@
     $user = $_POST["user"];
     $email = $_POST["email"];
     $status = $_POST["status"];
+    $nivel = $_POST["nivel"];
 
     $acao = "update";
     date_default_timezone_set('America/Sao_Paulo');
@@ -13,8 +14,8 @@
     $tabela = "usuario";
 
 
-  function updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status) {
-    $query = "UPDATE usuario SET codUsuario = '{$codUsuario}', nome = '{$nome}', user = '{$user}', email = '{$email}', status = '{$status}' WHERE codUsuario = '{$codUsuario}'";
+  function updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status, $nivel) {
+    $query = "UPDATE usuario SET codUsuario = '{$codUsuario}', nome = '{$nome}', user = '{$user}', email = '{$email}', status = '{$status}', nivel = '{$nivel}' WHERE codUsuario = '{$codUsuario}'";
     return mysqli_query($conexao, $query);
   }
 
@@ -26,11 +27,11 @@
     echo"<script language='javascript' type='text/javascript'>alert('Favor inserir seu user!');window.location.href='usuario-lista.php';</script>";  
   }
 
-    if(updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status)) {
-        $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");
-        echo"<script language='javascript' type='text/javascript'>alert('Usuario editado com sucesso');window.location.href='usuario-lista.php';</script>";
-    } else { 
-        echo"<script language='javascript' type='text/javascript'>alert('Usuario não pode ser editado');window.location.href='usuario-lista.php';</script>";
-        die(); 
-    }
+  if(updateUsuario($conexao, $codUsuario, $nome, $user, $email, $status, $nivel)) {
+    $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");
+    echo"<script language='javascript' type='text/javascript'>alert('Usuario editado com sucesso');window.location.href='usuario-lista.php';</script>";
+  } else { 
+    echo"<script language='javascript' type='text/javascript'>alert('Usuario não pode ser editado');window.location.href='usuario-lista.php';</script>";
+    die(); 
+  }
 ?>

@@ -1,6 +1,6 @@
 <?php  
     session_start();
-    session_destroy();
+    unset($_SESSION['codUser']);
     header("Location: index.html");
     exit;
 ?>

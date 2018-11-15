@@ -96,10 +96,20 @@
                     </a>
                     </li>
                     <li>
-                        <a href="trocaSenha-formulario.php">
+                        <a href="#">
                             <i class="fa fa-cog"></i>
                             <span class="nav-label">Configuração</span>
+                            <span class="fa arrow"></span>
                         </a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="trocaSenha-formulario.php">Senha</a>
+                            </li>
+                            <li>
+                                <a href="#">Privilégio</a>
+                            </li>
+                        </ul>
+                        
                     </li>
                 </ul>
 

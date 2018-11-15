@@ -13,6 +13,7 @@
                 $email = $row['email'];
                 $senha = $row['senha'];
                 $status = $row['status'];
+                $nivel = $row['nivel'];
             }
         }
       ?>
@@ -46,6 +47,18 @@
                             <select class="form-control m-b" name="status" id="status">
                                 <option selected value="1">Ativo</option>
                                 <option value="0" <?php if ($status == '0') echo 'selected'; ?> >Inativo</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Permissão</label>
+
+                        <div class="col-sm-9">
+                            <select class="form-control m-b" name="nivel" id="nivel">
+                                <option selected value="10"></option>
+                                <option value="7" <?php if ($nivel == '7') echo 'selected'; ?> >Administrador</option>
+                                <option value="8" <?php if ($nivel == '8') echo 'selected'; ?> >Secretaria</option>
+                                <option value="9" <?php if ($nivel == '9') echo 'selected'; ?> >Professor</option>
                             </select>
                         </div>
                     </div>
