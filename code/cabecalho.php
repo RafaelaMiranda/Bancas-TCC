@@ -1,3 +1,11 @@
+<?php 
+    session_start(); 
+    $connect = mysqli_connect('localhost','root','','banca');
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($connect, "SELECT nivel FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nivel = $numero["nivel"];
+?>
 <!DOCTYPE html>
 <html>
 
@@ -21,8 +29,6 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
-    
-    <?php session_start();?>
 </head>
 
 <body>
@@ -41,7 +47,9 @@
                             <span class="nav-label">Apresentações</span>
                         </a>
                     </li>
-
+                    <?php
+                        if($nivel == 7 || $nivel == 8) {
+                    ?>
                     <li>
                         <a href="#">
                             <i class="fa fa-edit"></i>
@@ -64,12 +72,21 @@
                             <li>
                                 <a href="apresentacao-formulario.php">Trabalho</a>
                             </li>
+                            <?php
+                                if($nivel == 7) {
+                            ?>
                             <li>
                                 <a href="usuario-formulario.php">Usuario</a>
                             </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                         
                     </li>
+                    <?php
+                        }
+                    ?>
                     <li>
                         <a href="#">
                             <i class="fa fa-table"></i>
@@ -89,9 +106,15 @@
                             <li>
                                 <a href="grupo-lista.php">Grupo</a>
                             </li>
+                            <?php
+                                if($nivel == 7 || $nivel == 8) {
+                            ?>
                             <li>
                                 <a href="usuario-lista.php">Usuario</a>
                             </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                     </a>
                     </li>
@@ -104,9 +127,6 @@
                         <ul class="nav nav-second-level">
                             <li>
                                 <a href="trocaSenha-formulario.php">Senha</a>
-                            </li>
-                            <li>
-                                <a href="#">Privilégio</a>
                             </li>
                         </ul>
                         
