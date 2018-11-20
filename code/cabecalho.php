@@ -1,8 +1,7 @@
-<?php 
+<?php include("conecta.php");
     session_start(); 
-    $connect = mysqli_connect('localhost','root','','banca');
     $id = $_SESSION['codUser'];
-    $verifica = mysqli_query($connect, "SELECT nivel FROM usuario WHERE codUsuario = '$id'");
+    $verifica = mysqli_query($conexao, "SELECT nivel FROM usuario WHERE codUsuario = '$id'");
     $numero = mysqli_fetch_assoc($verifica);
     $nivel = $numero["nivel"];
 ?>
