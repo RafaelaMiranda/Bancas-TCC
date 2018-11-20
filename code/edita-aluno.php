@@ -5,10 +5,15 @@
     $email = $_POST["email"];
     $curso = $_POST["curso"];
 
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nomeUsuario = $numero["nome"];
+
     $acao = "update";
     date_default_timezone_set('America/Sao_Paulo');
     $creat_at = date("d-m-Y H:i:s");
-    $user = $_SESSION['codUser'];
+    $user = $nomeUsuario;
     $tabela = "aluno";
 
 

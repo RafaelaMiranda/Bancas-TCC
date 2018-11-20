@@ -5,12 +5,17 @@
     $email = $_POST["email"];
     $senha = $_POST["senha"];
     $status = 1;
-    $nivel = 10;
+    $nivel = 4;
+
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nomeUsuario = $numero["nome"];
 
     $acao = "insert";
     date_default_timezone_set('America/Sao_Paulo');
     $creat_at = date("d-m-Y H:i:s");
-    $usuario = $_SESSION['codUser'];
+    $usuario = $nomeUsuario;
     $tabela = "usuario";
 
     function insereUsuario($conexao, $nome, $user, $email, $senha, $status, $nivel) {

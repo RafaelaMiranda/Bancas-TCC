@@ -7,10 +7,15 @@
     $status = $_POST["status"];
     $nivel = $_POST["nivel"];
 
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nomeUsuario = $numero["nome"];
+
     $acao = "update";
     date_default_timezone_set('America/Sao_Paulo');
     $creat_at = date("d-m-Y H:i:s");
-    $usuario = $_SESSION['codUser'];
+    $usuario = $nomeUsuario;
     $tabela = "usuario";
 
 

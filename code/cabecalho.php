@@ -1,9 +1,10 @@
 <?php include("conecta.php");
     session_start(); 
     $id = $_SESSION['codUser'];
-    $verifica = mysqli_query($conexao, "SELECT nivel FROM usuario WHERE codUsuario = '$id'");
+    $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
     $numero = mysqli_fetch_assoc($verifica);
     $nivel = $numero["nivel"];
+    $nome = $numero["nome"];
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,7 +48,7 @@
                         </a>
                     </li>
                     <?php
-                        if($nivel == 7 || $nivel == 8) {
+                        if($nivel == 1 || $nivel == 2) {
                     ?>
                     <li>
                         <a href="#">
@@ -72,7 +73,7 @@
                                 <a href="apresentacao-formulario.php">Trabalho</a>
                             </li>
                             <?php
-                                if($nivel == 7) {
+                                if($nivel == 1) {
                             ?>
                             <li>
                                 <a href="usuario-formulario.php">Usuario</a>
@@ -106,7 +107,7 @@
                                 <a href="grupo-lista.php">Grupo</a>
                             </li>
                             <?php
-                                if($nivel == 7 || $nivel == 8) {
+                                if($nivel == 1 || $nivel == 2) {
                             ?>
                             <li>
                                 <a href="usuario-lista.php">Usuario</a>
@@ -127,6 +128,15 @@
                             <li>
                                 <a href="trocaSenha-formulario.php">Senha</a>
                             </li>
+                            <?php
+                                if($nivel == 1) {
+                            ?>
+                            <li>
+                                <a href="log-lista.php">Auditoria</a>
+                            </li>
+                            <?php
+                                }
+                            ?>
                         </ul>
                         
                     </li>
@@ -139,6 +149,7 @@
             <div class="row border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <ul class="nav navbar-top-links navbar-right">
+                        <i>Olá <b><?php echo($nome); ?></b></i>
                         <li>
                             <a href="logout.php">
                                 <i class="fa fa-sign-out"></i> Log out

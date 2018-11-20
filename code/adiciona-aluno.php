@@ -5,10 +5,15 @@
     $curso = $_POST["curso"];
     $email = $_POST["email"];
 
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nomeUsuario = $numero["nome"];
+
     $acao = "insert";
     date_default_timezone_set('America/Sao_Paulo');
     $creat_at = date("d-m-Y H:i:s");
-    $user = $_SESSION['codUser'];
+    $user = $nomeUsuario;
     $tabela = "aluno";
 
     function insereAluno($conexao, $nome, $ra, $curso, $email) {

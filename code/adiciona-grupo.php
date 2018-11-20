@@ -8,10 +8,15 @@
     $alunoC = $_POST["alunoC"];
     $alunoD = $_POST["alunoD"];
 
+    $id = $_SESSION['codUser'];
+    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $numero = mysqli_fetch_assoc($verifica);
+    $nomeUsuario = $numero["nome"];
+
     $acao = "insert";
     date_default_timezone_set('America/Sao_Paulo');
     $creat_at = date("d-m-Y H:i:s");
-    $user = $_SESSION['codUser'];
+    $user = $nomeUsuario;
     $tabela = "grupo";
 
     function insereGrupo($conexao, $tituloTrabalho, $orientador, $areaPesquisa, $alunoA, $alunoB, $alunoC, $alunoD) {

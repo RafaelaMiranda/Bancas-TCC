@@ -3,10 +3,15 @@
         $nome = $_POST["nome"];
         $titulacao = $_POST["titulacao"];
 
+        $id = $_SESSION['codUser'];
+        $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+        $numero = mysqli_fetch_assoc($verifica);
+        $nomeUsuario = $numero["nome"];
+
         $acao = "insert";
         date_default_timezone_set('America/Sao_Paulo');
         $creat_at = date("d-m-Y H:i:s");
-        $user = $_SESSION['codUser'];
+        $user = $nomeUsuario;
         $tabela = "professor";
       
     function insereProfessor($conexao,$nome, $titulacao) {

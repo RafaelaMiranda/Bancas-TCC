@@ -1,6 +1,6 @@
 <?php include('cabecalho.php'); 
       include('conecta.php');
-      include('lista-usuario.php'); 
+      include('lista-log.php'); 
       $id = $_SESSION['codUser'];
       $verifica = mysqli_query($conexao, "SELECT nivel FROM usuario WHERE codUsuario = '$id'");
       $numero = mysqli_fetch_assoc($verifica);
@@ -15,30 +15,21 @@
                                 <table class="table table-striped table-bordered" coll>
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
+                                            <th>Ação</th>
+                                            <th>Tabela</th>
+                                            <th>Data e Hora</th>
                                             <th>Usuario</th>
-                                            <th>E-mail</th>
                                         </tr>
                                     </thead>
                                     <?php 
-                                        $usuarios = listaUsuario($conexao);
-                                        foreach($usuarios as $usuario) :
+                                        $logs = listaLogs($conexao);
+                                        foreach($logs as $log) :
                                     ?>
                                     <tbody>
-                                        <td><?= $usuario['nome'] ?></td>
-                                        <td><?= $usuario['user'] ?></td>
-                                        <td><?= $usuario['email'] ?></td>
-                                        <?php
-                                            if($nivel == 1) {
-                                        ?>
-                                        <td>
-                                            <a id="btnEditar" style="color: black" href="usuario-formulario-edicao.php?codUsuario=<?= $usuario['codUsuario'] ?>">                                 
-                                                <i class="fa fa-edit"></i>
-                                            </a>&nbsp;&nbsp;&nbsp;
-                                        </td>
-                                        <?php
-                                            }
-                                        ?>
+                                        <td><?= $log['acao'] ?></td>
+                                        <td><?= $log['tabela'] ?></td>
+                                        <td><?= $log['creat_at'] ?></td>
+                                        <td><?= $log['user'] ?></td>
                                     </tbody>
                                     <?php
                                         endforeach

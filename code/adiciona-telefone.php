@@ -4,10 +4,15 @@
         $ra = $_POST["ra"];
         $tipo = $_POST["tipo"];
 
+        $id = $_SESSION['codUser'];
+        $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+        $numero2 = mysqli_fetch_assoc($verifica);
+        $nomeUsuario = $numero2["nome"];
+
         $acao = "insert";
         date_default_timezone_set('America/Sao_Paulo');
         $creat_at = date("d-m-Y H:i:s");
-        $user = $_SESSION['codUser'];
+        $user = $nomeUsuario;
         $tabela = "telefone";
 
     function insereTelefone($conexao, $numero, $ra, $tipo) {

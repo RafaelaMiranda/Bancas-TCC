@@ -55,10 +55,10 @@
 
                         <div class="col-sm-9">
                             <select class="form-control m-b" name="nivel" id="nivel">
-                                <option selected value="10"></option>
-                                <option value="7" <?php if ($nivel == '7') echo 'selected'; ?> >Administrador</option>
-                                <option value="8" <?php if ($nivel == '8') echo 'selected'; ?> >Secretaria</option>
-                                <option value="9" <?php if ($nivel == '9') echo 'selected'; ?> >Professor</option>
+                                <option selected value="4"></option>
+                                <option value="1" <?php if ($nivel == '1') echo 'selected'; ?> >Administrador</option>
+                                <option value="2" <?php if ($nivel == '2') echo 'selected'; ?> >Secretaria</option>
+                                <option value="3" <?php if ($nivel == '3') echo 'selected'; ?> >Professor</option>
                             </select>
                         </div>
                     </div>
