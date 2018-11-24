@@ -1,6 +1,10 @@
 <?php include('conecta.php');
       include('cabecalho.php');
       include('lista-apresentacao.php'); 
+      $id = $_SESSION['codUser'];
+      $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
+      $numero = mysqli_fetch_assoc($verifica);
+      $nivel = $numero["nivel"];
 ?>
 
             <div class="wrapper wrapper-content animated fadeInRight">
@@ -32,6 +36,9 @@
                                         <td><?= $apresentacao['orientador'] ?></td>
                                         <td><?= $apresentacao['convidado1'] ?></td>
                                         <td><?= $apresentacao['convidado2'] ?></td>
+                                        <?php
+                                            if($nivel == 1 || $nivel == 2) {
+                                        ?>
                                         <td>
                                             <a id="btnEditar" style="color: black" href="apresentacao-formulario-edicao.php?codTrabalho=<?= $apresentacao['codTrabalho']?>">                                 
                                                 <i class="fa fa-edit"></i>
@@ -40,6 +47,9 @@
                                                 <i class="fa fa-trash"></i> 
                                             </a>
                                         </td>
+                                        <?php
+                                            }
+                                        ?>
                                     </tbody>
                                     <?php
                                         endforeach

@@ -13,10 +13,18 @@
                 $email = $row['email'];
                 $senha = $row['senha'];
                 $status = $row['status'];
-                $nivel = $row['nivel'];
+                $permissao = $row['nivel'];
             }
         }
-      ?>
+        $id = $_SESSION['codUser'];
+        $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
+        $numero = mysqli_fetch_assoc($verifica);
+        $nivel = $numero["nivel"];
+  ?>
+  
+  <?php
+      if($nivel == 1) {
+  ?>
                 <form method="POST" action="edita-usuario.php" class="form-horizontal" accept-charset="utf-8">
                 <div class="form-group">
                         <label class="col-sm-2 control-label">Nome</label>
@@ -55,10 +63,10 @@
 
                         <div class="col-sm-9">
                             <select class="form-control m-b" name="nivel" id="nivel">
-                                <option selected value="4"></option>
-                                <option value="1" <?php if ($nivel == '1') echo 'selected'; ?> >Administrador</option>
-                                <option value="2" <?php if ($nivel == '2') echo 'selected'; ?> >Secretaria</option>
-                                <option value="3" <?php if ($nivel == '3') echo 'selected'; ?> >Professor</option>
+                                <option value="1" <?php if ($permissao == '1') echo 'selected'; ?> >Administrador</option>
+                                <option value="2" <?php if ($permissao == '2') echo 'selected'; ?> >Secretaria</option>
+                                <option value="3" <?php if ($permissao == '3') echo 'selected'; ?> >Professor</option>
+                                <option value="4" <?php if ($permissao == '4') echo 'selected'; ?> >Indefinido</option>
                             </select>
                         </div>
                     </div>
@@ -70,4 +78,10 @@
                         </div>
                     </div>
                 </form>
+<?php
+    } else {
+        echo("Permissão de acesso negada");
+    }
+?>
+
 <?php include('rodape.php'); ?>

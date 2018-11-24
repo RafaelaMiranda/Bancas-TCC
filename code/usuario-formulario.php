@@ -1,5 +1,14 @@
 <?php include('cabecalho.php'); 
-      include('conecta.php'); ?>
+      include('conecta.php'); 
+      $id = $_SESSION['codUser'];
+      $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
+      $numero = mysqli_fetch_assoc($verifica);
+      $nivel = $numero["nivel"];
+?>
+
+<?php
+    if($nivel == 1) {
+?>
 
                     <form method="POST" action="adiciona-usuario.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
@@ -38,5 +47,10 @@
                         </div>
                     </div>
                 </form>
+<?php
+    } else {
+        echo("Permissão de acesso negada");
+    }
+?>
 
 <?php include('rodape.php'); ?>

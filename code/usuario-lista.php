@@ -6,6 +6,10 @@
       $numero = mysqli_fetch_assoc($verifica);
       $nivel = $numero["nivel"];
 ?>
+<?php
+    if($nivel == 1 || $nivel == 2) {
+?>
+
             <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
                     <div class="col-lg-12">
@@ -49,4 +53,10 @@
                     </div>
                 </div>
             </div>
+<?php
+    } else {
+        echo("Permissão de acesso negada");
+    }
+?>
+
 <?php include('rodape.php'); ?>

@@ -1,7 +1,16 @@
 <?php include('cabecalho.php');
       include('conecta.php');
       include('lista-grupo.php');
-      include('lista-professor.php'); ?>
+      include('lista-professor.php'); 
+      $id = $_SESSION['codUser'];
+      $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
+      $numero = mysqli_fetch_assoc($verifica);
+      $nivel = $numero["nivel"];
+?>
+
+<?php
+    if($nivel == 1 || $nivel == 2) {
+?>
 
                 <form method="POST" action="adiciona-apresentacao.php" class="form-horizontal" accept-charset="utf-8">
                     <div class="form-group">
@@ -118,7 +127,14 @@
                             </div>
                         </div>
                 </form>
+<?php
+    } else {
+        echo("Permissão de acesso negada");
+    }
+?>
+
 <?php include('rodape.php'); ?>
+
 <script>
     $('#data .input-group.date').datepicker({
         startView: 1,
