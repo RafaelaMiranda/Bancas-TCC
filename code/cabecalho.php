@@ -16,7 +16,7 @@
 
     <title>JVR - Acadêmico</title>
     
-
+    <link href="assets/academic-icon-13.jpg" rel="icon">
     <link href="assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet">
 
