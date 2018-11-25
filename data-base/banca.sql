@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: 15-Nov-2018 às 18:25
+-- Generation Time: 25-Nov-2018 às 13:38
 -- Versão do servidor: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -37,6 +37,13 @@ CREATE TABLE `aluno` (
   `email` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `aluno`
+--
+
+INSERT INTO `aluno` (`ra`, `codGrupo`, `codTrabalho`, `nome`, `curso`, `email`) VALUES
+('0040481612045', 0, 0, 'Rafaela Miranda', 'Análise e Desenvolvimento de Sistemas', 'rafsbrug@gmail.com');
+
 -- --------------------------------------------------------
 
 --
@@ -59,7 +66,7 @@ CREATE TABLE `grupo` (
 --
 
 INSERT INTO `grupo` (`codGrupo`, `tituloTrabalho`, `orientador`, `areaPesquisa`, `alunoA`, `alunoB`, `alunoC`, `alunoD`) VALUES
-(1, 'Desenvolvendo um chatbot amigavél ', 'Benedito Luciano Antunes de França', 'I.A', 'Rafaela Miranda', '', '', '');
+(3, 'Desenvolvendo um chatbot amigavél ', 'Agnaldo Pescelaro Pezzo', 'I.A', 'Rafaela Miranda', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -69,9 +76,9 @@ INSERT INTO `grupo` (`codGrupo`, `tituloTrabalho`, `orientador`, `areaPesquisa`,
 
 CREATE TABLE `logs` (
   `id` int(11) NOT NULL,
-  `acao` varchar(10) NOT NULL,
+  `acao` varchar(50) NOT NULL,
   `creat_at` varchar(50) NOT NULL,
-  `user` int(11) NOT NULL,
+  `user` varchar(50) NOT NULL,
   `tabela` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -80,20 +87,21 @@ CREATE TABLE `logs` (
 --
 
 INSERT INTO `logs` (`id`, `acao`, `creat_at`, `user`, `tabela`) VALUES
-(5, 'insert', '12-11-2018 21:07:54', 7, 'aluno'),
-(6, 'delete', '12-11-2018 21:08:05', 7, 'aluno'),
-(7, 'update', '12-11-2018 21:08:33', 7, 'professor'),
-(8, 'update', '12-11-2018 21:08:43', 7, 'professor'),
-(9, 'update', '12-11-2018 21:10:54', 7, 'usuario'),
-(10, 'insert', '12-11-2018 21:11:28', 7, 'usuario'),
-(11, 'update', '12-11-2018 21:11:51', 7, 'usuario'),
-(12, 'insert', '12-11-2018 21:13:29', 7, 'usuario'),
-(13, 'insert', '12-11-2018 21:13:57', 9, 'professor'),
-(14, 'delete', '12-11-2018 21:16:09', 9, 'professor'),
-(15, 'update', '15-11-2018 15:11:15', 9, 'usuario'),
-(16, 'update', '15-11-2018 15:11:31', 9, 'usuario'),
-(17, 'insert', '15-11-2018 15:20:26', 9, 'usuario'),
-(18, 'update', '15-11-2018 15:20:41', 9, 'usuario');
+(1, 'select', '25-11-2018 10:24:40', 'Rafaela Miranda', 'trabalho'),
+(2, 'delete', '25-11-2018 10:24:45', 'Rafaela Miranda', 'trabalho'),
+(3, 'delete', '25-11-2018 10:24:45', 'Rafaela Miranda', 'trabalho'),
+(4, 'select', '25-11-2018 10:24:46', 'Rafaela Miranda', 'trabalho'),
+(5, 'select', '25-11-2018 10:25:04', 'Valdirene Miranda', 'trabalho'),
+(6, 'select', '25-11-2018 10:25:06', 'Valdirene Miranda', 'grupo'),
+(7, 'select', '25-11-2018 10:25:15', 'Victor Marcorin', 'trabalho'),
+(8, 'select', '25-11-2018 10:25:19', 'Victor Marcorin', 'telefone'),
+(9, 'select', '25-11-2018 10:25:53', 'Valdirene Miranda', 'trabalho'),
+(10, 'select', '25-11-2018 10:25:56', 'Valdirene Miranda', 'grupo'),
+(11, 'select', '25-11-2018 10:25:56', 'Valdirene Miranda', 'professor'),
+(12, 'select', '25-11-2018 10:25:56', 'Valdirene Miranda', 'professor'),
+(13, 'insert', '25-11-2018 10:26:27', 'Valdirene Miranda', 'trabalho'),
+(14, 'select', '25-11-2018 10:26:29', 'Valdirene Miranda', 'trabalho'),
+(15, 'select', '25-11-2018 10:26:44', 'Rafaela Miranda', 'trabalho');
 
 -- --------------------------------------------------------
 
@@ -237,6 +245,13 @@ CREATE TABLE `telefone` (
   `tipo` varchar(10) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `telefone`
+--
+
+INSERT INTO `telefone` (`codTelefone`, `numero`, `ra`, `tipo`) VALUES
+(3, '(19)98350-2490', '0040481612045', 'fixo');
+
 -- --------------------------------------------------------
 
 --
@@ -252,6 +267,13 @@ CREATE TABLE `trabalho` (
   `horario` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `sala` varchar(5) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Extraindo dados da tabela `trabalho`
+--
+
+INSERT INTO `trabalho` (`codTrabalho`, `codGrupo`, `convidado1`, `convidado2`, `diaApresentacao`, `horario`, `sala`) VALUES
+(3, 3, 'Francisco Carlos Mancin', 'Antonio Alfredo Lacerda', '04/12/2018', '09h30', 'C2');
 
 -- --------------------------------------------------------
 
@@ -274,9 +296,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`codUsuario`, `nome`, `user`, `email`, `senha`, `status`, `nivel`) VALUES
-(7, 'Rafaela Miranda', 'rafa', 'rafaela-gomes@outlook.com', 'bb2e7f6c5352d025e37e13a567206ed1', 1, 9),
-(9, 'Rafaela Miranda', 'admin', 'rafsbrug@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 7),
-(14, 'Valdirene Miranda', 'val', 'teste@teste.com.br', '81dc9bdb52d04dc20036dbd8313ed055', 1, 8);
+(17, 'Rafaela Miranda', 'admin', 'rafsbrug@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 1),
+(18, 'Valdirene Miranda', 'val', 'teste@teste.com.br', '81dc9bdb52d04dc20036dbd8313ed055', 1, 2),
+(19, 'Victor Marcorin', 'victor', 'victor.am.ccomp@gmail.com', '81dc9bdb52d04dc20036dbd8313ed055', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -294,10 +316,10 @@ CREATE TABLE `usuarioNivel` (
 --
 
 INSERT INTO `usuarioNivel` (`id`, `nome`) VALUES
-(7, 'Administrador'),
-(8, 'Secretaria'),
-(9, 'Professor'),
-(10, 'Indefinido');
+(1, 'Administrador'),
+(2, 'Secretaria'),
+(3, 'Professor'),
+(4, 'Indefinido');
 
 --
 -- Indexes for dumped tables
@@ -346,7 +368,7 @@ ALTER TABLE `trabalho`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`codUsuario`),
-  ADD KEY `fk_nivelUsuario` (`nivel`);
+  ADD KEY `usuarioNivel_fk` (`nivel`);
 
 --
 -- Indexes for table `usuarioNivel`
@@ -362,13 +384,13 @@ ALTER TABLE `usuarioNivel`
 -- AUTO_INCREMENT for table `grupo`
 --
 ALTER TABLE `grupo`
-  MODIFY `codGrupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codGrupo` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `professor`
@@ -380,25 +402,25 @@ ALTER TABLE `professor`
 -- AUTO_INCREMENT for table `telefone`
 --
 ALTER TABLE `telefone`
-  MODIFY `codTelefone` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `codTelefone` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `trabalho`
 --
 ALTER TABLE `trabalho`
-  MODIFY `codTrabalho` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `codTrabalho` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `codUsuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codUsuario` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `usuarioNivel`
 --
 ALTER TABLE `usuarioNivel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
@@ -420,7 +442,8 @@ ALTER TABLE `trabalho`
 -- Limitadores para a tabela `usuario`
 --
 ALTER TABLE `usuario`
-  ADD CONSTRAINT `fk_nivelUsuario` FOREIGN KEY (`nivel`) REFERENCES `usuarioNivel` (`id`);
+  ADD CONSTRAINT `fk_nivelUsuario` FOREIGN KEY (`nivel`) REFERENCES `usuarioNivel` (`id`),
+  ADD CONSTRAINT `usuarioNivel_fk` FOREIGN KEY (`nivel`) REFERENCES `usuarioNivel` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
