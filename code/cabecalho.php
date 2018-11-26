@@ -39,7 +39,7 @@
             <div class="sidebar-collapse">
                 <ul class="nav" id="side-menu">
                     <li class="nav-header">
-                        <img src="http://www.fatec.edu.br/wp-content/themes/fatec/img/logo-colorido.png" height="80" />
+                        <img src="assets/logo-colorido.png" height="80" />
                     </li>
                     <li>
                         <a href="apresentacao-lista.php">

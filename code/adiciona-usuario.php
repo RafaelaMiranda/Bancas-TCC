@@ -1,4 +1,5 @@
 <?php include('conecta.php');
+
     session_start();
     $nome = $_POST["nome"];
     $user = $_POST["user"];
@@ -8,7 +9,7 @@
     $nivel = 4;
 
     $id = $_SESSION['codUser'];
-    $verifica = mysqli_query($conexao, "SELECT nome FROM usuario WHERE codUsuario = '$id'");
+    $verifica = mysqli_query($conexao, "SELECT * FROM usuario WHERE codUsuario = '$id'");
     $numero = mysqli_fetch_assoc($verifica);
     $nomeUsuario = $numero["nome"];
 
@@ -35,7 +36,7 @@
     } 
     
     else if(insereUsuario($conexao, $nome, $user, $email, $senha, $status, $nivel)) {
-            $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");    
+            $log = mysqli_query($conexao, "INSERT INTO logs (acao, creat_at, user, tabela) VALUES ('{$acao}','{$creat_at}','{$usuario}', '{$tabela}')");   
             echo"<script language='javascript' type='text/javascript'>alert('Usuario adicionado com sucesso');window.location.href='usuario-lista.php';</script>";
         } else { 
             echo"<script language='javascript' type='text/javascript'>alert('Usuario não pode ser adicionado');window.location.href='usuario-formulario.php';</script>";
